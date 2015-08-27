@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>Timeline</title>
+
+		<!-- Bootstrap Core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+		<!-- Fonts -->
+		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="css/nivo-lightbox.css" rel="stylesheet" />
+		<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+		<link href="css/animate.css" rel="stylesheet" />
+		<!-- Squad theme CSS -->
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/timeline.css" rel="stylesheet">
+		<link href="color/default.css" rel="stylesheet">
+
+	</head>
+
+	<body data-spy="scroll">
+
+		<div class="container">
+			<ul id="gn-menu" class="gn-menu-main">
+				<li class="gn-trigger">
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+							<ul class="gn-menu">
+								<li class="gn-search-item">
+									<input placeholder="Search" type="search" class="gn-search">
+									<a class="gn-icon gn-icon-search"><span>Search</span></a>
+								</li>
+								<li>
+									<a href="personal.html" class="gn-icon gn-icon-home"> Index</a>
+								</li>
+								<li>
+									<a href="profile.html" class="gn-icon gn-icon-pro">Profile</a>
+								</li>
+								<li>
+									<a href="setting.html" class="gn-icon gn-icon-set">Setting</a>
+								</li>
+								<li>
+									<a href="#timeline" class="gn-icon gn-icon-top">Backtop</a>
+								</li>
+
+							</ul>
+						</div><!-- /gn-scroller -->
+					</nav>
+				</li>
+				<li>
+					<a href="index.html">19 Sheep</a>
+				</li>
+				<ul class="nav navbar-top-links navbar-right">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user fa-3x"></i> </a>
+						<!-- dropdown user-->
+						<ul class="dropdown-menu dropdown-user">
+							<li>
+								<a href="profile.html"><i class="fa fa-user fa-fw"></i>User Profile</a>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="index.html"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+							</li>
+						</ul>
+						<!-- end dropdown-user -->
+					</li>
+					<!-- end main dropdown -->
+				</ul>
+
+			</ul>
+		</div>
+
+		<!-- Section: title -->
+		<section id="begin" class="title">
+			<div class="header-name">
+				<h1>Personal Timeline</h1>
+			</div>
+		</section>
+		<!-- /Section: title -->
+		<!-- Sectiion: overall -->
+		<section id="timeline" class="home-section">
+			<div class="heading-time">
+				<div class="container">
+					<div class="row">
+						<div class=".col-xs-12 .col-sm-6 .col-md-8">
+							<div class="search-bar">
+								<form class="search-form" onsubmit="#">
+									<label>Find other's timeline</label>
+									<br>
+									<input type="text" name="q" value="" id="searchText" maxlength="450" placeholder="" autocomplete="off"/>
+									<input type="submit" id="searchSubmit" value="Search" />
+								</form>
+							</div>
+							<hr>
+							<!--Timeline -->
+							<div class="panel panel-default panel-tree">
+								<div class="panel-heading">
+									<i class="fa fa-clock-o fa-fw"></i>Timeline
+								</div>
+
+								<div class="panel-body">
+									<ul class="timeline">
+										<li class="timeline-inverted">
+											<div class="timeline-badge warning">
+												<i class="fa fa-check"></i>
+											</div>
+											<div class="timeline-panel">
+												<div class="timeline-heading">
+													<h4 class="timeline-title">Make a new record</h4>
+												</div>
+												<div class="timeline-body">
+													<p>
+														Input your video code from youtube.
+													</p>
+													<p>
+														<small class="text-muted">Tips: https://www.youtube.com/watch?v=7T2oje4cYxw</small>
+													</p>
+													<p>
+														<small class="text-muted">      Input the part after '=', which is "7T2oje4cYxw"</small>
+													</p>
+													<hr>
+													<form action="#">
+													<input type="text" name="address" value="7T2oje4cYxw" >
+													<input type="submit" value="Submit">
+													</form>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="timeline-badge">
+												<i class="fa fa-check"></i>
+											</div>
+											<div class="timeline-panel">
+												<div class="timeline-heading">
+													<h4 class="timeline-title">Dream record</h4>
+													<p>
+														<small class="text-muted"><i class="fa fa-time"></i>11-02-2015</small>
+													</p>
+												</div>
+												<div class="timeline-body">
+													<p>
+														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.
+													</p>
+													<hr>
+													<button class="youtube record-button" rel="eaIeLnbUyfM">
+														Check video
+													</button>
+												</div>
+											</div>
+										</li>
+										<li class="timeline-inverted">
+											<div class="timeline-badge warning">
+												<i class="fa fa-check"></i>
+											</div>
+											<div class="timeline-panel">
+												<div class="timeline-heading">
+													<h4 class="timeline-title">Avtivities record</h4>
+													<p>
+														<small class="text-muted"><i class="fa fa-time"></i>06-01-2015</small>
+													</p>
+												</div>
+												<div class="timeline-body">
+													<p>
+														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.
+													</p>
+													<p>
+														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.
+													</p>
+													<hr>
+													<button class="youtube record-button" rel="eaIeLnbUyfM">
+														Check video
+													</button>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="timeline-badge danger">
+												<i class="fa fa-check"></i>
+											</div>
+											<div class="timeline-panel">
+												<div class="timeline-heading">
+													<h4 class="timeline-title">Avtivities record</h4>
+													<p>
+														<small class="text-muted"><i class="fa fa-time"></i>26-11-2014</small>
+													</p>
+												</div>
+												<div class="timeline-body">
+													<p>
+														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.
+													</p>
+													<hr>
+													<button class="youtube record-button" rel="eaIeLnbUyfM">
+														Check video
+													</button>
+												</div>
+											</div>
+										</li>
+										<li class="timeline-inverted">
+											<div class="timeline-badge danger">
+												<i class="fa fa-check"></i>
+											</div>
+											<div class="timeline-panel">
+												<div class="timeline-heading">
+													<h4 class="timeline-title">Avtivities record</h4>
+													<p>
+														<small class="text-muted"><i class="fa fa-time"></i>02-11-2014</small>
+													</p>
+												</div>
+												<div class="timeline-body">
+													<p>
+														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.
+													</p>
+													<hr>
+													<button class="youtube record-button" rel="eaIeLnbUyfM">
+														Check video
+													</button>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="timeline-badge info">
+												<i class="fa fa-check"></i>
+											</div>
+											<div class="timeline-panel">
+												<div class="timeline-heading">
+													<h4 class="timeline-title">Dream record</h4>
+													<p>
+														<small class="text-muted"><i class="fa fa-time"></i>29-10-2014</small>
+													</p>
+												</div>
+												<div class="timeline-body">
+													<p>
+														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.
+													</p>
+													<hr>
+													<button class="youtube record-button" rel="eaIeLnbUyfM">
+														Check video
+													</button>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="timeline-badge success">
+												<i class="fa fa-check"></i>
+											</div>
+											<div class="timeline-panel">
+												<div class="timeline-heading">
+													<h4 class="timeline-title">Dream record</h4>
+													<p>
+														<small class="text-muted"><i class="fa fa-time"></i>22-08-2014</small>
+													</p>
+												</div>
+												<div class="timeline-body">
+													<p>
+														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.
+													</p>
+													<hr>
+													<button class="youtube record-button" rel="eaIeLnbUyfM">
+														Check video
+													</button>
+												</div>
+											</div>
+										</li>
+
+									</ul>
+								</div>
+
+							</div>
+							<!--End Timeline -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /Section: timeline -->
+
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-lg-12">
+
+						<p>
+							Copyright &copy; 2015 19 Sheep - by <a href="http://bootstraptaste.com">Bootstraptaste</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Core JavaScript Files -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.youtubepopup.js"></script>
+		<script src="js/bootstrap.youtubepopup.min.js"></script>
+		<script src="js/jquery.easing.min.js"></script>
+		<script src="js/classie.js"></script>
+		<script src="js/gnmenu.js"></script>
+		<script src="js/jquery.scrollTo.js"></script>
+		<script src="js/nivo-lightbox.min.js"></script>
+		<script src="js/stellar.js"></script>
+		<!-- Custom Theme JavaScript -->
+		<script src="js/custom.js"></script>
+		<script src="js/log.js"></script>
+		<script src="js/pop.js"></script>
+
+	</body>
+
+</html>
