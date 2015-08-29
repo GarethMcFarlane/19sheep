@@ -115,25 +115,32 @@
 		//Sorting, encoding base string in SHA1 with the app secret.
 		ksort($userTokenParameters);
 		$base_string = oauth_get_sbs('GET','https://oauth.withings.com/account/access_token',$userTokenParameters);
-		print($_SESSION["authSecret"]);
-		print("\n");
-		print("\n");
-		print($base_string);
-		$signature = urlencode(base64_encode(hash_hmac('sha1',$base_string,$_SESSION["authSecret"],true)));
-		
+		$secret = $_SESSION["authSecret"];
+
+		$signature = urlencode(base64_encode(hash_hmac('sha1',$base_string,$secret,true)));
+
 		//Getting data and storing it.  
 		
-		$url = "https://oauth.withings.com/account/access_token?oauth_consumer_key=$consumer_key&oauth_nonce=$nonce&oauth_signature=$signature&oauth_signature_method=$signature_method&oauth_timestamp=$timestamp&oauth_token=$oauth_token&oauth_version=$oauth_version&userid=$userid";
+
+		$url = "https://oauth.withings.com/account/access_token?oauth_consumer_key=$consumer_key&oauth_nonce=$nonce&oauth_signature=$signature&oauth_signature_method=$signature_method&oauth_timestamp=$timestamp&oauth_token=$oauth_token&oauth_version=$oauth_version";
 		//print($url);
 		curl_setopt($curl, CURLOPT_URL, $url);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
-		//$finalResp = curl_exec($curl);
-		//var_dump($finalResp);
+		$finalResp = curl_exec($curl);
 		parse_str($finalResp,$responsearray);
+		$oauth_token = $responsearray['oauth_token'];
+		$oauth_token_secret = $responsearray['oauth_token_secret'];
+		$oauth_user_id = $responsearray['userid'];
+
+
+		//^ Store these in a database
+
+
 		curl_close($curl);
 		session_destroy();
-		
+		//Redirect back to home page.
+		header('Location: ' . 'http://garethmcfarlane.net');
 		}
 
 		?>
