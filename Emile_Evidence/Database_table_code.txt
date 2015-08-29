@@ -1,0 +1,31 @@
+CREATE TABLE User (
+   OAuth_tocken varchar(80)    NOT NULL ,
+   OAuth_tocken_secret varchar(80)    NOT NULL ,
+   Username varchar(64)    NOT NULL ,
+   Password varchar(64)    NOT NULL ,
+   email varchar(255)    NOT NULL ,
+   Company char(50)    NOT NULL ,
+   Job_title char(50)    NOT NULL ,
+   Company_tocken varchar(10)    NOT NULL ,
+   Corporate bool    NOT NULL ,
+   User_ID int    NOT NULL ,
+   Video_id int    NOT NULL ,
+   CONSTRAINT User_pk PRIMARY KEY (Username)
+);
+CREATE TABLE Mood (
+   id int    NOT NULL ,
+   Mood_record int    NOT NULL ,
+   Username_ID varchar(64)    NOT NULL ,
+   time timestamp    NOT NULL ,
+   CONSTRAINT Mood_pk PRIMARY KEY (id),
+ALTER TABLE Mood ADD CONSTRAINT user FOREIGN KEY user (Username_ID)
+   REFERENCES User (Username);
+);
+CREATE TABLE Video (
+   id int    NOT NULL ,
+   time timestamp    NOT NULL ,
+   Username_ID varchar(64)    NOT NULL ,
+   CONSTRAINT Video_pk PRIMARY KEY (id),
+ALTER TABLE Video ADD CONSTRAINT User_Video FOREIGN KEY User_Video (Username_ID)
+   REFERENCES User (Username);
+);
