@@ -135,12 +135,12 @@
 
 
 		//^ Store these in a database
-
+		var_dump($responsearray);
 
 		curl_close($curl);
 		session_destroy();
 		//Redirect back to home page.
-		header('Location: ' . 'http://garethmcfarlane.net');
+		//header('Location: ' . 'http://garethmcfarlane.net');
 		}
 
 		?>
