@@ -1,0 +1,6 @@
+
+Reference: http://oauth.withings.com/api/doc#api-Measure-get_sleep
+Online Viewer (Copy below text into this site and click on viewer tab): http://jsonviewer.stack.hu/
+
+
+{"status":0,"body":{"model":16,"series":[{"startdate":1441285440,"state":2,"enddate":1441286700},{"startdate":1441286700,"state":1,"enddate":1441288020},{"startdate":1441288020,"state":2,"enddate":1441291680},{"startdate":1441291680,"state":1,"enddate":1441293060},{"startdate":1441293060,"state":2,"enddate":1441295160},{"startdate":1441295160,"state":1,"enddate":1441295460},{"startdate":1441295460,"state":0,"enddate":1441296000},{"startdate":1441296000,"state":1,"enddate":1441297920},{"startdate":1441297920,"state":2,"enddate":1441299960},{"startdate":1441299960,"state":1,"enddate":1441302840},{"startdate":1441302840,"state":2,"enddate":1441304640},{"startdate":1441304640,"state":1,"enddate":1441306921}]}}

@@ -1,0 +1,89 @@
+Sleep Measure Data:
+
+Each "{ }" in the series part indicates a transition from one sleep level to another.  So the below data means the user had three sleep levels.
+I don't think this example is complete.  You can add more values to it if you want to get more detailed.
+
+"startdate" = date in the form of number of seconds from Jan 1st 1970
+"enddate" = date in the form number of seconds from Jan 1st 1970
+(We can convert these to dates later on.  For now you can use this: http://www.epochconverter.com/)
+
+"model": 16 is activity tracker, 32 is the Withings Aura
+"state": 
+0 = Awake
+1 = Light sleep
+2 = Deep Sleep
+3 = REM Sleep (only if model is 32)
+
+For example, the below data shows the user was in bed at 8pm on 03/12/2014, then went into light sleep at 8:16pm then went into REM sleep at 8:33 PM.
+
+
+{
+                               "status": 0,
+                               "body": {
+                                   "series": [
+                                       {
+                                           "startdate": 1417550400,
+                                           "state": 0,
+                                           "enddate": 1417551300
+                                       },
+                                       {
+                                           "startdate": 1417551360,
+                                           "state": 1,
+                                           "enddate": 1417552320
+                                       },
+                                       {
+                                           "startdate": 1417552380,
+                                           "state": 3,
+                                           "enddate": 1417554000
+                                       }
+                                   ],
+                                   "model" : 32
+                               }
+                           }
+
+
+
+
+ Sleep Summary Data:
+
+
+"startdate" and "enddate": same as above
+"model": same as above
+"date": the date the sleep data ends.
+duration values are in seconds
+"durationtosleep" is time taken to fall asleep
+"duratetowakeup" is time taken to wake up
+
+Below user lives in Paris and went to bed at 9:34pm on the 12/09/2014 and woke up at 3:22am.  They had
+30 minutes of being awake, 5.15 hours of light sleep, 2.35 hours of deep sleep, 2.9 hours of REM sleep, took 7 minutes to fall asleep
+and took 6 minutes to wake up.  They woke up 3 times.  From what I can tell light sleep is recorded even when the user is in deep sleep.
+
+
+{
+   "status":0, 
+   "body": { 
+     "series":     
+    [ 
+     {
+       "id":16616514,
+       "timezone":"\"Europe/Paris\"",
+       "model":32,
+       "startdate":1410521659,
+       "enddate":1410542577,
+       "date":"2014-09-11",
+       "data":
+       { 
+         "wakeupduration":1800,
+         "lightsleepduration":18540,
+         "deepsleepduration":8460,
+         "remsleepduration":10460,
+         "durationtosleep":420,
+         "durationtowakeup":360,
+         "wakeupcount":3
+        },
+        "modified":1412087110
+      }
+   ],
+   "more":false
+   }
+ }
