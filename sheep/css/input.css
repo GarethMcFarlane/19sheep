@@ -1,0 +1,52 @@
+.triangle {
+	height: 120px;
+	width: 60px;
+}
+#tri1 {
+	background: green;
+}
+#tri2 {
+	background: red;
+}
+#tri3 {
+	background: yellow;
+}
+#tri4 {
+	background: blue;
+}
+#tri1:hover,#tri1:focus {
+	box-shadow: 0 0 0 3px white, 0 0 0 5px green;
+	cursor: pointer;
+}
+#tri2:hover,#tri2:focus {
+	box-shadow: 0 0 0 3px white, 0 0 0 5px red;
+	cursor: pointer;
+}
+#tri3:hover,#tri3:focus {
+	box-shadow: 0 0 0 3px white, 0 0 0 5px yellow;
+	cursor: pointer;
+}
+#tri4:hover,#tri4:focus {
+	box-shadow: 0 0 0 3px white, 0 0 0 5px blue;
+	cursor: pointer;
+}
+
+input[type="radio"] {
+	position: absolute;
+	left:-999999px;
+}
+fieldset label {
+	margin: 5px;
+}
+.quiz-btn {
+	color: #FD8A17;
+	background: #fff;
+	margin: 5px;
+	height: 40px;
+	margin-top: 20px;
+	width: 150px;
+	border: #FD8A17 2px solid;
+}
+.quiz-btn:hover {
+	font-size: 15px;
+}
