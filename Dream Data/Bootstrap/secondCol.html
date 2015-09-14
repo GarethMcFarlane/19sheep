@@ -9,61 +9,377 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>First Information page!</title>
+    <title>Dream Analyzer Full Submit Form v0.1</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template  -->
-    <link href="./css/cover.css" rel="stylesheet">
-	
-	<style>
-	body{
-		background-color: pink;
-	}
-	hidden{
-		color: black;
-		}
-	</style>
+    <!-- Custom styles for this template -->
+	<link href="./css/jumbotron.css" rel="stylesheet">
   </head>
 
   <body>
 
-    <div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Meh?</h3>
-            </div>
-          </div>
-
-          <div class="inner cover">
-            <h1 class="cover-heading">Here you can find some very boring information</h1>
-            <p class="lead">I am sorry reader, but you have stumbled on a completely useless page.</p>
-			<p class ="hidden" onclick="location.href='newMain.html'"> back there </p>
-            <p class="lead"> is where you want to be, I am sorry you'll have to use the return button on the bottom of the page to get back to something
-			much more useful. hmmm. Where was that return button?</p>
-              <!--<a href="newMain.html" class="btn btn-lg btn-default">Go Back</a> -->
-            </p>
-          </div>
-
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" 
+		  aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Dream Analyzer - Extended Detail</a>
         </div>
+      </div>  
+    </nav> 
 
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+  <!--<div class="jumbotron">
+	
+     <div class="container">
+		
+        <h1></h1>
+        <p></p>
+        <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
       </div>
+    </div> 
+	
+	<div class="container colourcoded">
 
-    </div>
+	</div>
+	
+	<div class="row col-md-12">
+		<div class="container col-md-1">
+		</div>
+		<div class = "container-fluid col-md-7">
+			<p> Was the dream </p>
+			<div class="container col-md-6 ">
+				<label class="btn">
+					<input type="radio" name="emotion" id="option1" > Good
+				</label>
+				<label class="btn">
+					<input type="radio" name="emotion" id="option2" > Not Good
+				</label>
+			</div>
+		</div>
+	</div>	
+	
+	
+	<div class="row col-md-12">
+		<div class = "container col-md-1">
+		</div>
+		<div class = "container col-md-7">
+		
+			<h3> Dream Actors </h3>
+		</div>
+	</div>
+	
+	<div class="row">		
+		<div class="container col-md-1">
+		</div>
+		<div class = "container-fluid col-md-7">
+			<label class="checkbox-inline"><input type="checkbox" value="">You</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Partner</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Ex Partner</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Father</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Mother</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Son</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Daughter</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Grandfather</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Grandmother</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Uncle</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Aunt</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Cousin</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Friend</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Boss</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">co-worker</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Total Stranger</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Pet</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Animal</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Tree/Plant</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Other <i>-Please State</i></label>
+		</div>
+	</div>
+
+	<div class="row col-md-12">
+		<div class = "container col-md-1">
+		</div>
+		<div class = "container col-md-7">
+		
+			<h3> Your role in the dream? </h3>
+		</div>
+	</div>
+	
+	<div class="row">		
+		<div class="container col-md-1">
+		</div>
+		<div class = "container-fluid col-md-7">
+			<label class="checkbox-inline"><input type="checkbox" value="">Carer</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Lover</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Teacher</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Adventurer</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Supporter</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Message Deliverer</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Worker</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Friend</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Other <i> - Please State</i></label>
+		</div>
+	</div>
+	
+	<div class="row col-md-12">
+		<div class = "container col-md-1">
+		</div>
+		<div class = "container col-md-7">
+		
+			<h3> Their role in the dream? </h3>
+		</div>
+	</div>
+	
+	<div class="row">		
+		<div class="container col-md-1">
+		</div>
+		<div class = "container-fluid col-md-7">
+			<label class="checkbox-inline"><input type="checkbox" value="">Carer</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Lover</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Teacher</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Adventurer</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Supporter</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Message Deliverer</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Worker</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Friend</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Other <i> - Please State</i></label>
+		</div>
+	</div>
+	
+		<div class="row col-md-12">
+		<div class = "container col-md-1">
+		</div>
+		<div class = "container col-md-7">
+		
+			<h3> Dream Theme </h3>
+		</div>
+	</div>
+	
+	<div class="row">		
+		<div class="container col-md-1">
+		</div>
+		<div class = "container-fluid col-md-7">
+			<label class="checkbox-inline"><input type="checkbox" value="">Love</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Compassion</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Tolerance</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Learning</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Support</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Teaching</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Desire</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Affection</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Sexuality</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Joy</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Ecstasy</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Adventure</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Betrayal</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Jealousy</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Envy</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Anger</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Violence</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Guilt</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Escape</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Trapped</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Isolation</label>
+			
+			<label class="checkbox-inline"><input type="checkbox" value="">Other <i> - Please State</i></label>
+		</div>
+	</div>
+	
+	<div class="row col-md-12">
+		<div class = "container col-md-1">
+		</div>
+		<div class = "container col-md-7">
+		
+			<h3> Dream lighting </h3>
+		</div>
+	</div>
+	
+	<div class="row">		
+		<div class="container col-md-1">
+		</div>
+		<div class = "container-fluid col-md-7">
+			<label class="checkbox-inline"><input type="checkbox" value="">Intense lights/Colours</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Normal</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Grey, barren expanse of nothing</label>
+		</div>
+	</div>
+	
+	<div class="row col-md-12">
+		<div class = "container col-md-1">
+		</div>
+		<div class = "container col-md-7">
+		
+			<h3> Dream Clarity </h3>
+		</div>
+	</div>
+	
+	<div class="row">		
+		<div class="container col-md-1">
+		</div>
+		<div class = "container-fluid col-md-7">
+			<label class="checkbox-inline"><input type="checkbox" value="">Heaven-like bliss</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Super emotional HD</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Very Clear</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Average</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Fuzzy</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Hard to make out</label>
+		</div>
+	</div>
+	
+	<div class="row col-md-12">
+		<div class = "container col-md-1">
+		</div>
+		<div class = "container col-md-7">
+		
+			<h3> Dream Power </h3>
+		</div>
+	</div>
+	
+	<div class="row">		
+		<div class="container col-md-1">
+		</div>
+		<div class = "container-fluid col-md-7">
+			<label class="checkbox-inline"><input type="checkbox" value="">can glide or fly</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can levitate</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can walk above ground</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can breathe underwater</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can change myself into living things</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">experience telepathy</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can sing amazingly</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">hear amazing sounds</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can travel through solid objects</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">teleport to other destinations</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can build things by will</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can destroy things by will</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can see or communicate with people who have passed</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">witness the past</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">see future alternatives</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can communicate with animals</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can communicate with plants/trees</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">attract wealth</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">good health</label>
+		</div>
+	</div>
+	
+	<div class="row col-md-12">
+		<div class = "container col-md-1">
+		</div>
+		<div class = "container col-md-7">
+		
+			<h3> Dream Blocks </h3>
+		</div>
+	</div>
+	
+	<div class="row">		
+		<div class="container col-md-1">
+		</div>
+		<div class = "container-fluid col-md-7">
+			<label class="checkbox-inline"><input type="checkbox" value="">can't walk</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can't run</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can't talk</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can't hear</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can't breathe</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">being chased</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">walking naked in front of people</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can't find something</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">lost friends</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">lost family</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">lost partner</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">lost children</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">poverty</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">illness</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">dying</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">dead</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">can't think straight</label>
+		</div>
+	</div>
+	
+	<div class="row col-md-12">
+		<div class = "container col-md-1">
+		</div>
+		<div class = "container col-md-7">
+		
+			<h3> Dream Physics </h3>
+		</div>
+	</div>
+	
+	<div class="row">		
+		<div class="container col-md-1">
+		</div>
+		<div class = "container-fluid col-md-7">
+			<label class="checkbox-inline"><input type="checkbox" value="">like normal waking day</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">atmosphere thicker and more viscous</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">super heavy gravity</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">atmosphere watery</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">atmosphere electric and humming</label>
+		</div>
+	</div>
+	
+	<div class="row col-md-12">
+		<div class = "container col-md-1">
+		</div>
+		<div class = "container col-md-7">
+		
+			<h3> Dream Lucidity </h3>
+		</div>
+	</div>
+	
+	<div class="row">		
+		<div class="container col-md-1">
+		</div>
+		<div class = "container-fluid col-md-7">
+			<label class="checkbox-inline"><input type="checkbox" value="">woke up too soon</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">very lucid</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">mildly lucid</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">not lucid - difficulty remembering</label>
+		</div>
+	</div>
+	
+	<div class="row col-md-12">
+		<div class = "container col-md-1">
+		</div>
+		<div class = "container col-md-7">
+		
+			<h3> Description of your dream </h3>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="comment">Dream Details:</label>
+	<textarea class="form-control" rows="5" id="comment"></textarea>
+</div>
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-6">
+          <h2></h2>
+          <p> </p>
+          <p><a class="btn btn-default" href="#" role="button">Submit Emotional Survey &raquo;</a></p>
+       </div>
+       
+      </div>
+		
+		
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="./css/dist/js/bootstrap.min.js"></script>
+    <script src="./css/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./css/assets/js/ie10-viewport-bug-workaround.js"></script>
-	<script> 
+    <script src="./css/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
