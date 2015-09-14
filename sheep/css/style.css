@@ -254,7 +254,9 @@ div#slider figure {
 	padding: 20px;
 }
 .form-control {
-	margin: 10px;
+	margin: 0px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 fieldset label {
 	display: block;
@@ -264,7 +266,7 @@ fieldset label {
 .unit-input {
 	padding-right:0;
 	margin-right:0;
-	width: 66%;
+	width: 69%;
 	display: inline-block;
 }
 .unit-select {
