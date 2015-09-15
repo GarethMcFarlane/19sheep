@@ -36,6 +36,7 @@ input[type="radio"] {
 	left:-999999px;
 }
 fieldset label {
+	display: inline-block;
 	margin: 5px;
 }
 .quiz-btn {
