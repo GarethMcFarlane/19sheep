@@ -8,7 +8,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 
-		<title>19 Sheep - Dream Logger</title>
+		<title>19 Sheep - Mood Logger</title>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -42,14 +42,19 @@
 						<a href="newindex.php">19 Sheep</a>
 					</li>
 					<li class='active'>
-						<a href='#'>Dream Analysis</a>
+						<a href='mood.php'>Mood Logger</a>
 					</li>
+					<li>
+						<a href='dreamdetail.php'>Dream Analysis</a>
+					</li>
+					
 
 				</ul>
 			</div>
 		</div>
-		<section id="dream-detail" class="home-section text-center">
+		<section id="mood-detail" class="home-section text-center">
 			<div class="container">
+				<div class="row">
 				<div class="row">
 					<h3>Mood Record</h3>
 				</div>
@@ -95,6 +100,7 @@
 
 					</div>
 				</form>
+				</div>
 			</div>
 
 		</section>

@@ -34,11 +34,14 @@
 			</div>
 			<div id='cssmenu'>
 				<ul>
-					<li class='active'>
+					<li>
 						<a href="newindex.php">19 Sheep</a>
 					</li>
 					<li>
-						<a href='#'>Dream Analysis</a>
+						<a href='mood.php'>Mood Logger</a>
+					</li>
+					<li>
+						<a href='dreamdetail.php'>Dream Analysis</a>
 					</li>
 
 				</ul>

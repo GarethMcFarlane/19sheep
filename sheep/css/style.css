@@ -410,7 +410,17 @@ fieldset label {
 	background: #FD8A17;
 	color: white;
 }
-
+/* dream */
+.dream-form fieldset{
+	margin-top: 60px;
+}
+.left-selections label {
+	display: inline-block;
+	margin-right: 10px;
+}
+.dream-form hr {
+	width: 100%;
+}
 /* ===========================
  --- General sections
  ============================ */

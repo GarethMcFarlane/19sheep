@@ -49,13 +49,16 @@
 			<div class="icon">
 				<img src="img/index/19sleep.png" style="width: 50px; height: 50px;" class="icon">
 			</div>
-			<div id='cssmenu'>
+			<div id="cssmenu">
 				<ul>
-					<li class='active'>
+					<li class="active">
 						<a href="newindex.php">19 Sheep</a>
 					</li>
 					<li>
-						<a href='#'>Dream Analysis</a>
+						<a href='mood.php'>Mood Logger</a>
+					</li>
+					<li>
+						<a href='dreamdetail.php'>Dream Analysis</a>
 					</li>
 
 				</ul>
