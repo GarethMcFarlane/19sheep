@@ -413,11 +413,12 @@ fieldset label {
 /* dream */
 .dream-form fieldset{
 	margin-top: 60px;
+	margin-bottom: 60px;
 }
 .left-selections label {
 	display: inline-block;
 	margin-right: 10px;
-}
+}	
 .dream-form hr {
 	width: 100%;
 }
