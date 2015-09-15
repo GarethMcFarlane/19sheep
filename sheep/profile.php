@@ -7,7 +7,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 
-		<title>19 Sheep - Sign up</title>
+		<title>19 Sheep - Dashboard</title>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -20,10 +20,10 @@
 		<!-- Squad theme CSS -->
 
 		<link href="color/default.css" rel="stylesheet">
-		<script src="js/jquery-latest.min.js" type="text/javascript"></script>
 		<script src="js/memuscript.js"></script>
 		<link rel="stylesheet" href="css/memustyles.css">
 		<link href="css/style.css" rel="stylesheet">
+		<link href="css/profile.css" rel="stylesheet">
 
 	</head>
 
@@ -38,7 +38,13 @@
 						<a href="newindex.php">19 Sheep</a>
 					</li>
 					<li>
+						<a href='mood.php'>Mood Logger</a>
+					</li>
+					<li>
 						<a href='dreamdetail.php'>Dream Analysis</a>
+					</li>
+					<li>
+						<a href='#'>My commitment</a>
 					</li>
 
 				</ul>
@@ -49,31 +55,55 @@
 				<a class="btn-signin" href="signup.php">Sign up</a>
 			</div>
 		</div>
-		<section id="signin">
-			<div class="container">
+		<section class="dashboard bg-gray">
+			<div class="container outbox">
 				<div class="row" style="margin-top:60px;">
-					<div class="col-md-4 col-md-offset-4 signin-box">
-						<form method="POST" action="#" accept-charset="UTF-8" role="form" id="signupform" class="form-signin text-center">
-							<fieldset>
-								<h3 class="sign-up-title" style="color: #000000; text-align: center">Hello! Provide your E-mail</h3>
-								<label>Email:</label>
-								<input class="form-control" placeholder="E-mail" name="email" type="text">
-								<label>Password:</label>
-								<input class="form-control" placeholder="Password" name="password" value="" type="password">
-								<label>Confirm Password:</label>
-								<input class="form-control" placeholder="Password" name="password" value="" type="password">
-								
-								<br>
-								<input class="submit btn btn-warning" value="Reset" type="reset">
-								<input class="submit btn btn-success" value="Submit" type="submit">
-							</fieldset>
-						</form>
+					<p>
+						I am graph
+					</p>
+					<div class="drop-circle">
+						<a type="button" class="showdiv-l"> <i class="fa fa-plus-circle fa-2x"></i> <i class="fa fa-caret-square-o-down fa-2x"></i> </a>
 					</div>
+				</div>
+				<div class="row hidden-div-l hidden">
+					<p>
+						I am Hide
+					</p>
+				</div>
+				<div class="row">
+					<p>
+						I am other graph;
+					</p>
 				</div>
 			</div>
 
 		</section>
+		<section class="dashboard bg-white">
+			<div class="container outbox">
+				<div class="row bg-dark" style="margin-top:60px;">
+					<p>
+						I am graph
+					</p>
+					<div class="drop-circle">
+						<a type="button" class="showdiv-r"> <i class="fa fa-plus-circle fa-4"></i> <i class="fa fa-caret-square-o-down fa-4"></i> </a>
+					</div>
+				</div>
+				<div class="row hidden-div-r hidden bg-white">
+					<p>
+						I am Hide
+					</p>
+				</div>
+				<div class="row bg-dark">
+					<p>
+						I am other graph;
+					</p>
+				</div>
+			</div>
 
+		</section>
+		<script src="js/jquery-latest.min.js" type="text/javascript"></script>
+
+		<script src="js/hide.js"></script>
 	</body>
 
 </html>

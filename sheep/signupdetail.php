@@ -38,9 +38,6 @@
 						<a href="newindex.php">19 Sheep</a>
 					</li>
 					<li>
-						<a href='mood.php'>Mood Logger</a>
-					</li>
-					<li>
 						<a href='dreamdetail.php'>Dream Analysis</a>
 					</li>
 
