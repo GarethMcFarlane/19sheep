@@ -11,7 +11,7 @@
 
 		<!-- Bootstrap Core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 		<!-- Fonts -->
 		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<link href="css/nivo-lightbox.css" rel="stylesheet" />
@@ -21,6 +21,7 @@
 
 		<link href="color/default.css" rel="stylesheet">
 		<script src="js/memuscript.js"></script>
+		<script src="js/xepOnline.jqPlugin.js"></script>
 		<link rel="stylesheet" href="css/memustyles.css">
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/profile.css" rel="stylesheet">
@@ -55,51 +56,72 @@
 				<a class="btn-signin" href="signup.php">Sign up</a>
 			</div>
 		</div>
-		<section class="dashboard bg-gray">
-			<div class="container outbox">
-				<div class="row" style="margin-top:60px;">
-					<p>
-						I am graph
-					</p>
-					<div class="drop-circle">
-						<a type="button" class="showdiv-l"> <i class="fa fa-plus-circle fa-2x"></i> <i class="fa fa-caret-square-o-down fa-2x"></i> </a>
+		<section class="bg-gray">
+			<a class="btn profile-btn" href="#" onclick="return xepOnline.Formatter.Format('print-box', {render:'download',filename:'document'});">Save as PDF</a>
+			<a class="btn profile-btn" href="#">Withing</a>
+
+			<div id="print-box">
+				<div class="dashboard">
+					<div class="container outbox">
+						<div class="row" style="margin-top:60px;">
+							<p>
+								I am graph
+							</p>
+							<div class="drop-circle">
+								<a type="button" class="showdiv-l"><i class="fa fa-caret-square-o-down fa-2x"></i> </a>
+							</div>
+						</div>
+						<div class="row hidden-div-l hidden">
+							<p>
+								I am Hide
+							</p>
+						</div>
+						<div class="row">
+							<p>
+								I am other graph;
+							</p>
+							<div class="drop-circle">
+								<a type="button" class="showdiv-l-2"> <i class="fa fa-caret-square-o-down fa-2x"></i> </a>
+							</div>
+						</div>
+						<div class="row hidden-div-l-2 hidden">
+							<p>
+								I am other Hide
+							</p>
+						</div>
 					</div>
 				</div>
-				<div class="row hidden-div-l hidden">
-					<p>
-						I am Hide
-					</p>
-				</div>
-				<div class="row">
-					<p>
-						I am other graph;
-					</p>
-				</div>
-			</div>
-
-		</section>
-		<section class="dashboard bg-white">
-			<div class="container outbox">
-				<div class="row bg-dark" style="margin-top:60px;">
-					<p>
-						I am graph
-					</p>
-					<div class="drop-circle">
-						<a type="button" class="showdiv-r"> <i class="fa fa-plus-circle fa-4"></i> <i class="fa fa-caret-square-o-down fa-4"></i> </a>
+				<div class="dashboard">
+					<div class="container outbox">
+						<div class="row bg-dark" style="margin-top:60px;">
+							<p>
+								I am graph
+							</p>
+							<div class="drop-circle">
+								<a type="button" class="showdiv-r"> <i class="fa fa-caret-square-o-down fa-2x"></i> </a>
+							</div>
+						</div>
+						<div class="row hidden-div-r hidden bg-white">
+							<p>
+								I am Hide
+							</p>
+						</div>
+						<div class="row bg-dark">
+							<p>
+								I am other graph;
+							</p>
+							<div class="drop-circle">
+								<a type="button" class="showdiv-r-2"> <i class="fa fa-caret-square-o-down fa-2x"></i> </a>
+							</div>
+						</div>
+						<div class="row hidden-div-r-2 hidden">
+							<p>
+								I am other Hide
+							</p>
+						</div>
 					</div>
 				</div>
-				<div class="row hidden-div-r hidden bg-white">
-					<p>
-						I am Hide
-					</p>
-				</div>
-				<div class="row bg-dark">
-					<p>
-						I am other graph;
-					</p>
-				</div>
 			</div>
-
 		</section>
 		<script src="js/jquery-latest.min.js" type="text/javascript"></script>
 

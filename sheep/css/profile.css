@@ -21,12 +21,22 @@
 	height: 100%;
 }
 .visible {
-  display: block;
+	display: block;
 }
 
 .hidden {
-  display: none
+	display: none;
 }
-.showdiv-l, .showdiv-r {
+.showdiv-l, .showdiv-r ,.showdiv-l-2, .showdiv-r-2 {
 	color: #FD8A17;
+}
+#print-box {
+	height: 100%;
+}
+.profile-btn {
+	width:120px;
+	max-width:120px;
+	color:#FD8A17;
+	border: #FD8A17 1px solid;
+	
 }

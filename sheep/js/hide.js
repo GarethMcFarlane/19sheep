@@ -15,4 +15,21 @@ $(document).ready(function() {
 			$('.hidden-div-r').removeClass("visible").addClass("hidden");
 		}
 	});
+	$('.showdiv-l-2').click(function() {
+		
+		if ($('.hidden-div-l-2').hasClass("hidden")) {
+			$('.hidden-div-l-2').removeClass("hidden").addClass("visible");
+		} else {
+			$('.hidden-div-l-2').removeClass("visible").addClass("hidden");
+		}
+	});
+	$('.showdiv-r-2').click(function() {
+		
+		if ($('.hidden-div-r-2').hasClass("hidden")) {
+			$('.hidden-div-r-2').removeClass("hidden").addClass("visible");
+		} else {
+			$('.hidden-div-r-2').removeClass("visible").addClass("hidden");
+		}
+	});
+	
 }); 
