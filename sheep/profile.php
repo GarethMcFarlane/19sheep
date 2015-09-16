@@ -50,16 +50,12 @@
 
 				</ul>
 			</div>
-			<div class="login-home">
-				<a class="btn-signin" href="signin.php">Sign in</a>
-
-				<a class="btn-signin" href="signup.php">Sign up</a>
-			</div>
 		</div>
 		<section class="bg-gray">
+			<div class="btn-box">
 			<a class="btn profile-btn" href="#" onclick="return xepOnline.Formatter.Format('print-box', {render:'download',filename:'document'});">Save as PDF</a>
 			<a class="btn profile-btn" href="#">Withing</a>
-
+			</div>
 			<div id="print-box">
 				<div class="dashboard">
 					<div class="container outbox">
