@@ -51,11 +51,27 @@
 				</ul>
 			</div>
 		</div>
-		<section class="bg-gray">
-			<div class="btn-box">
-			<a class="btn profile-btn" href="#" onclick="return xepOnline.Formatter.Format('print-box', {render:'download',filename:'document'});">Save as PDF</a>
-			<a class="btn profile-btn" href="#">Withing</a>
+
+
+
+		<?php
+			if (!isset($_SESSION["username"])) {
+				//User isn't logged in, return to login page.
+				//header('Location: 19sheep.com/signin.php');
+			}
+
+
+
+			if (!isset($_SESSION["user-id"])) {
+		?>
+			<p align="center">No Withings device detected.  Please click the button below to connect.</p>
+			<div align="center" class="btn-box">
+			<a class="btn profile-btn" href="http://19sheep.com/api.php">Connect</a>
 			</div>
+		<?php
+			} else {
+		?>
+		<section class="bg-gray">
 			<div id="print-box">
 				<div class="dashboard">
 					<div class="container outbox">
@@ -119,6 +135,9 @@
 				</div>
 			</div>
 		</section>
+		<?php
+			} 
+		?>
 		<script src="js/jquery-latest.min.js" type="text/javascript"></script>
 
 		<script src="js/hide.js"></script>
