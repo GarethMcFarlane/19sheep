@@ -26,6 +26,70 @@
 		<link rel="stylesheet" href="css/memustyles.css">
 		<link href="css/style.css" rel="stylesheet">
 
+
+		<?php
+
+
+		include("functions.php");
+		ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
+		if (!empty($_POST)) {
+			$query = "
+			SELECT
+				userid,
+				username,
+				password,
+				salt,
+				email
+			FROM 
+				users
+			WHERE
+				email = :email
+			";
+			$query_params = array(
+				':email' => $_POST['email']
+				);
+
+			try {
+				$stmt = $db->prepare($query);
+				$result = $stmt->execute($query_params);
+			} catch (PDOException $ex) {
+				die("Failed to run query: " . $ex->getMessage());
+			}
+
+			$login_ok = false;
+			$row = $stmt->fetch();
+			if ($row) {
+				$check_password = hash('sha256', $_POST['password'] . $row['salt']);
+				for ($round = 0; $round < 65536; $round++) {
+					$check_password = hash('sha256', $check_password . $row['salt']);
+				}
+
+				if ($check_password === $row['password']) {
+					$login_ok = true;
+				}
+			}
+			if ($login_ok) {
+				unset($row['salt']);
+				unset($row['password']);
+				$_SESSION['username'] = $row["username"];
+				header("Location: profile.php");
+				die("Login sucessful.  Redirecting to profile.");
+			} else {
+				echo "<script type=\"text/javascript\">
+				alert('login Failed - Please try again.');
+				</script>";
+			}
+		}
+		?>
+
+
+
+
+
+
+
 	</head>
 
 	<body data-spy="scroll">
@@ -54,7 +118,7 @@
 			<div class="container">
 				<div class="row" style="margin-top:60px;">
 					<div class="col-md-4 col-md-offset-4 signin-box">
-						<form method="POST" action="#" accept-charset="UTF-8" role="form" id="loginform" class="form-signin text-center">
+						<form method="POST" action="signin.php" accept-charset="UTF-8" role="form" id="loginform" class="form-signin text-center">
 							<fieldset>
 								<h3 class="sign-up-title" style="color: #000000; text-align: center">Welcome back! Please sign in</h3>
 
