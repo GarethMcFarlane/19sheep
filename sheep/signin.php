@@ -31,9 +31,7 @@
 
 
 		include("functions.php");
-		ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(-1);
+		session_start();
 		if (!empty($_POST)) {
 			$query = "
 			SELECT
@@ -73,7 +71,11 @@ error_reporting(-1);
 			if ($login_ok) {
 				unset($row['salt']);
 				unset($row['password']);
-				$_SESSION['username'] = $row["username"];
+				$_SESSION['username'] = $row['username'];
+				$_SESSION['loggedin'] = 1;
+
+
+
 				header("Location: profile.php");
 				die("Login sucessful.  Redirecting to profile.");
 			} else {

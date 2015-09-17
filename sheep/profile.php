@@ -55,14 +55,15 @@
 
 
 		<?php
-			if (!isset($_SESSION["username"])) {
+			session_start();
+			if (!isset($_SESSION['username'])) {
 				//User isn't logged in, return to login page.
-				//header('Location: 19sheep.com/signin.php');
+				header("Location: signin.php");
 			}
 
 
 
-			if (!isset($_SESSION["user-id"])) {
+			if (!isset($_SESSION["userid"])) {
 		?>
 			<p align="center">No Withings device detected.  Please click the button below to connect.</p>
 			<div align="center" class="btn-box">

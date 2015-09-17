@@ -1,3 +1,107 @@
+<?php require_once("functions.php"); 
+?>
+<?php
+    if (!empty($_POST)) {
+        if (empty($_POST['username'])) {
+            die("Please enter a username.");
+			exit();
+        }
+        if (empty($_POST['password'])) {
+            die("Please enter a password.");
+			exit();
+        }
+        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            die("Invalid E-Mail Address");
+			exit();
+        }
+        $query = "
+            SELECT
+                1
+            FROM users
+            WHERE
+                username = :username
+        ";
+        $query_params = array(
+            ':username' => $_POST['username']
+        );
+
+        try {
+            $stmt = $db->prepare($query);
+            $result = $stmt->execute($query_params);
+        } catch (PDOException $ex) {
+            die("Failed to run query: " . $ex->getMessage());
+			exit();
+        }
+        $row = $stmt->fetch();
+        if ($row) {
+            die("This username is already in use");
+			exit();
+        }
+        $query = "
+            SELECT
+                1
+            FROM users
+            WHERE
+                email = :email
+        ";
+
+        $query_params = array(
+            ':email' => $_POST['email']
+        );
+
+        try {
+            $stmt = $db->prepare($query);
+            $result = $stmt->execute($query_params);
+        } catch (PDOException $ex) {
+            die("Failed to run query: " . $ex->getMessage());
+        }
+
+        $row = $stmt->fetch();
+
+        if ($row) {
+            die("This email address is already registered");
+			exit();
+        }
+        $query = "
+            INSERT INTO users (
+                username,
+                password,
+                salt,
+                email
+            ) VALUES (
+                :username,
+                :password,
+                :salt,
+                :email
+            )
+        ";
+        $salt = dechex(mt_rand(0, 2147483647)) . dechex(mt_rand(0, 2147483647));
+        $password = hash('sha256', $_POST['password'] . $salt);
+        for ($round = 0; $round < 65536; $round++) {
+            $password = hash('sha256', $password . $salt);
+        }
+        $query_params = array(
+            ':username' => $_POST['username'],
+            ':password' => $password,
+            ':salt' => $salt,
+            ':email' => $_POST['email']
+        );
+
+        try {
+            $stmt = $db->prepare($query);
+
+            $result = $stmt->execute($query_params);
+        } catch (PDOException $ex) {
+            die("Failed to run query: " . $ex->getMessage());
+			exit();
+        }
+        $_SESSION["username"] = $_POST['username'];
+        $_SESSION["loggedin"] = 0;
+        header("Location: signupdetail.php");
+        die("Redirecting to login.php");
+		//exit();
+    }
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,15 +157,17 @@
 			<div class="container">
 				<div class="row" style="margin-top:60px;">
 					<div class="col-md-4 col-md-offset-4 signin-box">
-						<form method="POST" action="#" accept-charset="UTF-8" role="form" id="signupform" class="form-signin text-center">
+						<form method="POST" action="signup.php" accept-charset="UTF-8" role="form" id="signupform" class="form-signin text-center">
 							<fieldset>
 								<h3 class="sign-up-title" style="color: #000000; text-align: center">Hello! Provide your E-mail</h3>
+                                <label>Username:</label>
+                                <input class="form-control" placeholder="username" name="username" type="text" required="required">
 								<label>Email:</label>
-								<input class="form-control" placeholder="E-mail" name="email" type="text">
+								<input class="form-control" placeholder="E-mail" name="email" type="text" required="required">
 								<label>Password:</label>
-								<input class="form-control" placeholder="Password" name="password" value="" type="password">
+								<input class="form-control" placeholder="Password" name="password" value="" type="password" required="required">
 								<label>Confirm Password:</label>
-								<input class="form-control" placeholder="Password" name="password" value="" type="password">
+								<input class="form-control" placeholder="Password" name="password" value="" type="password" required="required">
 								
 								<br>
 								<input class="submit btn btn-warning" value="Reset" type="reset">

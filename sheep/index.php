@@ -134,7 +134,7 @@
 
 			<div class="container store-box">
 				<div class="store-link-box">
-					<a href="#"><i class="fa fa-cart-arrow-down"></i> Smart Store</a>
+					<a href="http://shop.19sheep.com"><i class="fa fa-cart-arrow-down"></i> Smart Store</a>
 				</div>
 				<div id="slider">
 					<figure>
