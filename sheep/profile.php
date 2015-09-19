@@ -36,7 +36,7 @@
 			<div id='cssmenu'>
 				<ul>
 					<li>
-						<a href="newindex.php">19 Sheep</a>
+						<a href="index.php">19 Sheep</a>
 					</li>
 					<li>
 						<a href='mood.php'>Mood Logger</a>
@@ -50,17 +50,21 @@
 
 				</ul>
 			</div>
+						<div class="login-home">
+				<a class="btn-signin" href="logout.php">Log Out</a>
+			</div>
 		</div>
 
 
 
 		<?php
 			session_start();
+
+
 			if (!isset($_SESSION['username'])) {
 				//User isn't logged in, return to login page.
 				header("Location: signin.php");
 			}
-
 
 
 			if (!isset($_SESSION["userid"])) {

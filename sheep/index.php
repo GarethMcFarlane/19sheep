@@ -44,6 +44,12 @@
 
 	</head>
 
+	<?php
+	if (isset($_SESSION['username'])) {
+		header("Location: profile.php");
+	}
+	?>
+
 	<body data-spy="scroll">
 		<div class="container  header-main">
 			<div class="icon">
@@ -52,7 +58,7 @@
 			<div id="cssmenu">
 				<ul>
 					<li class="active">
-						<a href="newindex.php">19 Sheep</a>
+						<a href="index.php">19 Sheep</a>
 					</li>
 					<li>
 						<a href='dreamdetail.php'>Dream Analysis</a>

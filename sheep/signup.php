@@ -139,7 +139,7 @@
 			<div id='cssmenu'>
 				<ul>
 					<li>
-						<a href="newindex.php">19 Sheep</a>
+						<a href="index.php">19 Sheep</a>
 					</li>
 					<li>
 						<a href='dreamdetail.php'>Dream Analysis</a>

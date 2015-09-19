@@ -39,7 +39,9 @@
 				username,
 				password,
 				salt,
-				email
+				email,
+				OAuthToken,
+				OAuthTokenSecret
 			FROM 
 				users
 			WHERE
@@ -73,7 +75,11 @@
 				unset($row['password']);
 				$_SESSION['username'] = $row['username'];
 				$_SESSION['loggedin'] = 1;
-
+				if (!is_null($row['OAuthToken'])){
+					$_SESSION['OAuthToken'] = $row['OAuthToken'];
+					$_SESSION['OAuthTokenSecret'] = $row['OAuthTokenSecret'];
+					$_SESSION['userid'] = $row['userid'];
+				}
 
 
 				header("Location: profile.php");
@@ -102,7 +108,7 @@
 			<div id='cssmenu'>
 				<ul>
 					<li>
-						<a href="newindex.php">19 Sheep</a>
+						<a href="index.php">19 Sheep</a>
 					</li>
 					<li>
 						<a href='dreamdetail.php'>Dream Analysis</a>
