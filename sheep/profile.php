@@ -22,9 +22,12 @@
 		<link href="color/default.css" rel="stylesheet">
 		<script src="js/memuscript.js"></script>
 		<script src="js/xepOnline.jqPlugin.js"></script>
+		<script src="js/jquery-latest.min.js"></script>
 		<link rel="stylesheet" href="css/memustyles.css">
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/profile.css" rel="stylesheet">
+
+		<script type="text/javascript" src="js/helpingmethods.js"></script>
 
 	</head>
 
@@ -81,9 +84,53 @@
 				<div class="dashboard">
 					<div class="container outbox">
 						<div class="row" style="margin-top:60px;">
-							<p>
-								I am graph
-							</p>
+
+							<script>
+
+							var json;
+							$.ajax({
+								type: 'POST',
+								url: 'sleepmeasures.php',
+								async: false,
+								data: {test: '1'},
+								dataType: 'text',
+								success: function(response){
+									json = JSON.parse(response);
+								}
+							});
+
+							google.load("visualization", "1", {packages:["gauge"]});
+							google.setOnLoadCallback(drawChart);
+							var data = getData(json);
+							var value = 100*(getSleepScore("evening",2,data)*0.75+getSleepScore("morning",2,data)*0.25).toFixed(2);
+
+							function drawChart() {
+								var data = google.visualization.arrayToDataTable([
+									['Label', 'Value'],
+									[' ', value],
+									]);
+
+								var options = {
+									min:0, max:100,
+									width: 800, height: 240,
+									redFrom: 0, redTo: 20,
+									yellowFrom:20, yellowTo: 50,
+									greenFrom:50, greenTo:100,
+									minorTicks: 5
+								};
+
+								var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+								chart.draw(data, options);
+
+								setInterval(function() {
+									data.setValue(0, 0, 1);
+									chart.draw(data, options);
+								}, 13000);
+							}
+							</script>
+
+							<div id="chart_div" style="width: 400px; height: 120px;"></div>
 							<div class="drop-circle">
 								<a type="button" class="showdiv-l"><i class="fa fa-caret-square-o-down fa-2x"></i> </a>
 							</div>
@@ -147,5 +194,7 @@
 
 		<script src="js/hide.js"></script>
 	</body>
+
+
 
 </html>

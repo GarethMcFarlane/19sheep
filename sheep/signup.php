@@ -96,7 +96,6 @@
 			exit();
         }
         $_SESSION["username"] = $_POST['username'];
-        $_SESSION["loggedin"] = 0;
         header("Location: signupdetail.php");
         die("Redirecting to login.php");
 		//exit();

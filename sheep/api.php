@@ -147,6 +147,9 @@
 		try {
             $stmt = $db->prepare($query);
             $result = $stmt->execute($query_params);
+            $_SESSION['OAuthToken'] = $responsearray['oauth_token'];
+			$_SESSION['OAuthTokenSecret'] = $responsearray['oauth_token_secret'];
+			$_SESSION['userid'] = $responsearray['userid'];
             header('Location: profile.php');
        } catch (PDOException $ex) {
             die("Failed to run query: " . $ex->getMessage());
