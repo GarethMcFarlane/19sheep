@@ -132,7 +132,7 @@
 			':oauth_token' => $responsearray['oauth_token'],
 			':oauth_token_secret' => $responsearray['oauth_token_secret'],
 			':userid' => $responsearray['userid'],
-			':username' => $_SESSION['username']);
+			':email' => $_SESSION['email']);
 
 
 		$query = "UPDATE users
@@ -141,7 +141,7 @@
 						OAuthTokenSecret = :oauth_token_secret,
 						userid = :userid
 					WHERE
-						username = :username
+						email = :email
 						";
 
 		try {

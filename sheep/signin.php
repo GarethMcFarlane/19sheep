@@ -32,11 +32,15 @@
 
 		include("functions.php");
 		session_start();
+
+
+		if($_SESSION['loggedin'] == 1) {
+			header('Location: profile.php');
+		}
 		if (!empty($_POST)) {
 			$query = "
 			SELECT
 				userid,
-				username,
 				password,
 				salt,
 				email,
@@ -73,7 +77,7 @@
 			if ($login_ok) {
 				unset($row['salt']);
 				unset($row['password']);
-				$_SESSION['username'] = $row['username'];
+				$_SESSION['email'] = $row['email'];
 				$_SESSION['loggedin'] = 1;
 				if (!is_null($row['OAuthToken'])){
 					$_SESSION['OAuthToken'] = $row['OAuthToken'];

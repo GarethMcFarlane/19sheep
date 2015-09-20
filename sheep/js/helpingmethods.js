@@ -1,5 +1,5 @@
 function getData(json){
-    var l= json.body.series;
+    var l= json.0.body.series;
     return l;
 }
 function getActivityData(json){

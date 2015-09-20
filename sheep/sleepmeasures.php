@@ -7,11 +7,7 @@ function generateRandomString($length = 32) {
     		return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
 		}
 
-
-function getSleepMeasures($start,$end) {
-
-		$startdate = strtotime($start);
-		$enddate = strtotime($end);
+function getSleepData($startdate, $enddate) {
 
 
 		//Get these from the database after logging in the user
@@ -57,11 +53,23 @@ function getSleepMeasures($start,$end) {
 		curl_close($curl);
 
 
-		echo($resp);
+		return($resp);
+}
+
+//Get today.
+$enddate = strtotime("today 09:00:00") - 36000; //Get GMT time at 9am - 10 hours for timezone.
+$startdate = $enddate - 43200;
+$day1 = getSleepData($startdate,$enddate);
+
+$enddate = strtotime("yesterday 09:00:00") - 36000; //Get GMT time at 9am - 10 hours for timezone.
+$startdate = $enddate - 43200;
+$day2 = getSleepData($startdate,$enddate);
+
+$enddate = strtotime("-2 days 09:00:00") - 36000; //Get GMT time at 9am - 10 hours for timezone.
+$startdate = $enddate - 43200;
+$day3 = getSleepData($startdate,$enddate);
 
 
-	}
+echo("[$day1,$day2,$day3]");
 
-	
-	getSleepMeasures('2015-08-02','2015-08-03');
 ?>

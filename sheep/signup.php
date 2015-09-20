@@ -2,39 +2,13 @@
 ?>
 <?php
     if (!empty($_POST)) {
-        if (empty($_POST['username'])) {
-            die("Please enter a username.");
-			exit();
-        }
+
         if (empty($_POST['password'])) {
             die("Please enter a password.");
 			exit();
         }
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             die("Invalid E-Mail Address");
-			exit();
-        }
-        $query = "
-            SELECT
-                1
-            FROM users
-            WHERE
-                username = :username
-        ";
-        $query_params = array(
-            ':username' => $_POST['username']
-        );
-
-        try {
-            $stmt = $db->prepare($query);
-            $result = $stmt->execute($query_params);
-        } catch (PDOException $ex) {
-            die("Failed to run query: " . $ex->getMessage());
-			exit();
-        }
-        $row = $stmt->fetch();
-        if ($row) {
-            die("This username is already in use");
 			exit();
         }
         $query = "
@@ -64,12 +38,10 @@
         }
         $query = "
             INSERT INTO users (
-                username,
                 password,
                 salt,
                 email
             ) VALUES (
-                :username,
                 :password,
                 :salt,
                 :email
@@ -81,7 +53,6 @@
             $password = hash('sha256', $password . $salt);
         }
         $query_params = array(
-            ':username' => $_POST['username'],
             ':password' => $password,
             ':salt' => $salt,
             ':email' => $_POST['email']
@@ -95,7 +66,7 @@
             die("Failed to run query: " . $ex->getMessage());
 			exit();
         }
-        $_SESSION["username"] = $_POST['username'];
+        $_SESSION['email'] = $_POST['email'];
         header("Location: signupdetail.php");
         die("Redirecting to login.php");
 		//exit();
@@ -159,8 +130,6 @@
 						<form method="POST" action="signup.php" accept-charset="UTF-8" role="form" id="signupform" class="form-signin text-center">
 							<fieldset>
 								<h3 class="sign-up-title" style="color: #000000; text-align: center">Hello! Provide your E-mail</h3>
-                                <label>Username:</label>
-                                <input class="form-control" placeholder="username" name="username" type="text" required="required">
 								<label>Email:</label>
 								<input class="form-control" placeholder="E-mail" name="email" type="text" required="required">
 								<label>Password:</label>

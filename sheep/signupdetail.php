@@ -34,7 +34,7 @@ session_start();
         $query = "
             UPDATE users
             SET fullName=:fullName, height=:height, weight=:weight, gender=:gender, birthday=:birthday,location=:location
-            WHERE username=:username
+            WHERE email=:email
         ";
         $query_params = array(
 			':fullName' => $_POST['fullName'],
@@ -43,7 +43,7 @@ session_start();
 			':gender' => $_POST['gender'],
 			':birthday' => $_POST['birthday'],
 			':location' => $_POST['location'],
-            ':username' => $_SESSION['username']
+            ':email' => $_SESSION['email']
         );
 
         try {

@@ -68,7 +68,7 @@
 		<?php
 
 
-			if (!isset($_SESSION['username'])) {
+			if (!isset($_SESSION['email'])) {
 				//User isn't logged in, return to login page.
 				header("Location: signin.php");
 			}
@@ -87,8 +87,9 @@
 			<div id="print-box">
 				<div class="dashboard">
 					<div class="container outbox">
+						<h3>Sleep Score Gauge</h3>
 						<div class="row" style="margin-top:60px;">
-
+							
 							<script>
 							var sleep_json;
 							$.ajax({
@@ -154,10 +155,10 @@
 				</div>
 				<div class="dashboard">
 					<div class="container outbox">
-						<div class="row bg-dark" style="margin-top:60px;">
+						<h3>Activity Score Gauge</h3>
+						<div class="row" style="margin-top:60px;">
+							
 							<script>
-
-
 							var activity_json;
 							$.ajax({
 								type: 'POST',
@@ -209,7 +210,7 @@
 						<div class="row hidden-div-r hidden bg-white">
 
 						</div>
-						<div class="row bg-dark">
+						<div class="row">
 
 							<div class="drop-circle">
 								<a type="button" class="showdiv-r-2"> <i class="fa fa-caret-square-o-down fa-2x"></i> </a>
