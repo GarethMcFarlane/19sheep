@@ -32,7 +32,7 @@
 		<link href="css/profile.css" rel="stylesheet">
 
 		<script type="text/javascript" src="js/helpingmethods.js"></script>
-		<script type="text/javascript" src="js/displayGraphs.js"></script>
+
 
 	</head>
 

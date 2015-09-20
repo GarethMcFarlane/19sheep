@@ -48,7 +48,7 @@
 
 	session_start();
 
-	if (isset($_SESSION['username'])) {
+	if ($_SESSION['loggedin'] == 1) {
 		header("Location: profile.php");
 	}
 	?>
