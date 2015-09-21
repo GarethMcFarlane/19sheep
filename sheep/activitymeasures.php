@@ -6,8 +6,7 @@ function generateRandomString($length = 32) {
     		return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
 		}
 
-function getActivityMeasures($start,$end) {
-
+function getActivityMeasures($startdateymd,$enddateymd) {
 
 		//Get these from the database after logging in the user
 		$oauth_token = $_SESSION["OAuthToken"];
@@ -25,7 +24,6 @@ $signature_method='HMAC-SHA1';
 $oauth_version = '1.0';
 
 
-
 	$userTokenParameters = array (
 			'oauth_consumer_key' => $consumer_key,
 			'oauth_nonce' => $nonce,
@@ -33,8 +31,8 @@ $oauth_version = '1.0';
 			'oauth_timestamp' => $timestamp,
 			'oauth_version' => $oauth_version,
 			'oauth_token' => $oauth_token,
-			'startdateymd' => $start,
-			'enddateymd' => $end
+			'startdateymd' => $startdateymd,
+			'enddateymd' => $enddateymd
 			);
 
 
@@ -47,7 +45,7 @@ $base_string = oauth_get_sbs('GET','https://wbsapi.withings.net/v2/measure?actio
 $signature = urlencode(base64_encode(hash_hmac('sha1',$base_string,$hashSecret,true)));
 
 
-$url = "https://wbsapi.withings.net/v2/measure?action=getactivity&startdateymd=$start&enddateymd=$end&oauth_consumer_key=$consumer_key&oauth_nonce=$nonce&oauth_signature=$signature&oauth_signature_method=$signature_method&oauth_timestamp=$timestamp&oauth_token=$oauth_token&oauth_version=$oauth_version";
+$url = "https://wbsapi.withings.net/v2/measure?action=getactivity&startdateymd=$startdateymd&enddateymd=$enddateymd&oauth_consumer_key=$consumer_key&oauth_nonce=$nonce&oauth_signature=$signature&oauth_signature_method=$signature_method&oauth_timestamp=$timestamp&oauth_token=$oauth_token&oauth_version=$oauth_version";
 
 
 		curl_setopt($curl, CURLOPT_URL, $url);
@@ -56,11 +54,16 @@ $url = "https://wbsapi.withings.net/v2/measure?action=getactivity&startdateymd=$
 		$resp = curl_exec($curl);
 		//parse_str($resp,$responsearray);
 
-		echo($resp);
+		return ($resp);
 
 		curl_close($curl);
 
 	}
 
-	getActivityMeasures('2015-09-04','2015-09-06');
+	$enddate = date("Y-m-d");
+	$startdate = date("Y-m-d", strtotime("-6 days"));
+
+
+	echo getActivityMeasures($startdate,$enddate);
+
 ?>
