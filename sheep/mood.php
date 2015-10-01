@@ -10,47 +10,46 @@
 
 		<title>19 Sheep - Mood Logger</title>
 
-		<!-- Bootstrap Core CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-		<!-- Fonts -->
-		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<link href="css/nivo-lightbox.css" rel="stylesheet" />
-		<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
-		<link href="css/animate.css" rel="stylesheet" />
-		<!-- Squad theme CSS -->
-
-		<link href="color/default.css" rel="stylesheet">
-		<link href="css/social-buttons.css" rel="stylesheet">
-		<script src="js/jquery-latest.min.js" type="text/javascript"></script>
-		<script src="js/memuscript.js"></script>
-		<script src="js/color.js"></script>
-		<link rel="stylesheet" href="css/memustyles.css">
-		<link href="css/style.css" rel="stylesheet">
-		<link href="css/input.css" rel="stylesheet">
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<!-- Fonts -->
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/nivo-lightbox.css" rel="stylesheet" />
+	<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+	<link href="css/animate.css" rel="stylesheet" />
+	<!-- Squad theme CSS -->
+	<link href="color/default.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/memustyles.css">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/profile.css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery-latest.min.js"></script>
 
 	</head>
 
 	<body data-spy="scroll">
 		<div class="container  header-main">
 			<div class="icon">
-				<img src="img/index/19sleep.png" style="width: 50px; height: 50px;" class="icon">
-			</div>
-			<div id='cssmenu'>
-				<ul>
-					<li>
-						<a href="index.php">19 Sheep</a>
-					</li>
-					<li class='active'>
-						<a href='mood.php'>Mood Logger</a>
-					</li>
-					<li>
-						<a href='dreamdetail.php'>Dream Analysis</a>
-					</li>
-					
-
-				</ul>
-			</div>
+			<a href="index.php"><img src="img/index/19sleep.png" style="width: 50px; height: 50px;" class="icon"></a>
+		</div>
+		<div id='cssmenu'>
+			<ul>
+				<li>
+					<a href="profile.php">Dashboard</a>
+				</li>
+				<li>
+					<a href='mood.php'>Mood Logger</a>
+				</li>
+				<li>
+					<a href='dreamdetail.php'>Dream Analysis</a>
+				</li>
+				<li>
+					<a href='#'>My commitment</a>
+				</li>
+				<li>
+					<a href='message.php'>Messages</a>
+				</li>
+			</ul>
 		</div>
 		<section id="mood-detail" class="home-section text-center">
 			<div class="container">
