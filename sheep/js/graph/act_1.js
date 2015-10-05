@@ -37,5 +37,12 @@ function drawChart() {
 
   var act_chart = new google.visualization.Gauge(document.getElementById('chart_2'));
   act_chart.draw(act_data, act_options);
-  $("p.summary").append(getActivityGaugeMessage(value,81));   
+  $("#activitysummary").append(getActivityGaugeMessage(act_value,81));   
+
+
+//$.ajax({
+  //  url: "profile.php",
+ //   success: function (data) { $('p.summary').append(getActivityGaugeMessage(value,81)); },
+   // dataType: 'html'
+//});
 }

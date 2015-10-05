@@ -24,6 +24,8 @@
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/profile.css" rel="stylesheet">
 	<script type="text/javascript" src="js/jquery-latest.min.js"></script>
+	<script src="js/color.js"></script>
+	<link href="css/input.css" rel="stylesheet">
 
 	</head>
 

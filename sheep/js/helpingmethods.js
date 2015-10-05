@@ -265,7 +265,7 @@ function getPreviousDaysName(daynum){
 		pre: mond
 	};
 	var wedd = {
-		data: "Wedsday",
+		data: "Wednesday",
 		pre: tued
 	};
 	var thud = {
