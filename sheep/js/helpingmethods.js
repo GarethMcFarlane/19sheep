@@ -103,15 +103,16 @@ function totalActivityScore(data){
 }
 function getActivityDuration(type, json){
 	var days = getActivityData(json);
+	var index = days.length -1;
 	var value = 0;
 	if(type == "intense"){
-		value = days[6].intense/3600;
+		value = days[index].intense/3600;
 	}
 	if(type == "soft"){
-		value = days[6].soft/3600;
+		value = days[index].soft/3600;
 	}
 	if(type == "moderate"){
-		value = days[6].moderate/3600;
+		value = days[index].moderate/3600;
 		}
 
 	return value;

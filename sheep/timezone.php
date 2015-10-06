@@ -19,5 +19,6 @@ $now = date_create('now', timezone_open($timezone));
 
 //Calculate the offset in seconds from the given time zone.  
 $offset = date_offset_get($now);
+echo $offset;
 
 ?>

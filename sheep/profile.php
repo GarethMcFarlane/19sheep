@@ -101,13 +101,7 @@
 		<?php
 	} else {
 		?>
-		<script type="text/javascript" src="js/helpingmethods.js"></script>
-		<script type="text/javascript" src="js/graph/sleep_1.js"></script>
-		<script type="text/javascript" src="js/graph/sleep_2.js"></script>
-		<script type="text/javascript" src="js/graph/sleep_3.js"></script>
-		<script type="text/javascript" src="js/graph/act_1.js"></script>
-		<script type="text/javascript" src="js/graph/act_2.js"></script>
-		<script type="text/javascript" src="js/graph/act_3.js"></script>
+
 
 		<section class="bg-gray">
 			<div id="print-box">
@@ -173,7 +167,7 @@
 							<div class="graph_heading">
 								<h3>Activity Detail</h3>
 							</div>
-							<div id="chart_div_2" class="graph_div multi_graph"></div>
+							<div id="chart_div_2" class="graph_div" style="width:600px; height:180px"></div>
 						</div>
 
 						<div class="row">
@@ -202,6 +196,13 @@
 	<script src="js/jquery-latest.min.js" type="text/javascript"></script>
 
 	<script src="js/hide.js"></script>
+	<script type="text/javascript" src="js/helpingmethods.js"></script>
+	<script type="text/javascript" src="js/graph/sleep_1.js"></script>
+	<script type="text/javascript" src="js/graph/sleep_2.js"></script>
+	<script type="text/javascript" src="js/graph/sleep_3.js"></script>
+	<script type="text/javascript" src="js/graph/act_1.js"></script>
+	<script type="text/javascript" src="js/graph/act_3.js"></script>
+	<script type="text/javascript" src="js/graph/act_4.js"></script>
 </body>
 
 
