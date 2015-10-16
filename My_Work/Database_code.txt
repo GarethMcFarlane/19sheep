@@ -1,0 +1,71 @@
+-- tables
+
+-- Table commitments
+CREATE TABLE mood (
+    id int AUTO_INCREMENT, 
+    useremail varchar(255),
+    timestamp timestamp,
+    val CHAR(2),
+    CONSTRAINT commitments_pk PRIMARY KEY (id)
+);
+CREATE TABLE commitments (
+    id int AUTO_INCREMENT, 
+    targetperday varchar(255), 
+    startday date, 
+    deadline date, 
+    text varchar(100), 
+    isachieved int, 
+    type char(50), 
+    email varchar(255), 
+    CONSTRAINT commitments_pk PRIMARY KEY (id)
+);
+
+-- Table message
+CREATE TABLE message (
+    id int, 
+    convoid int, 
+    title varchar(256), 
+    user1 varchar(256), 
+    user2 varchar(256), 
+    messages text, 
+    mytimestamp timestamp, 
+    user1read int, 
+    user2read int, 
+    CONSTRAINT message_pk PRIMARY KEY (id)
+);
+
+-- Table users
+CREATE TABLE users (
+    OAuthToken varchar(80), 
+    OAuthTokenSecret varchar(80),
+    password varchar(64), 
+    fullName varchar(200), 
+    height decimal(2,1), 
+    weight decimal(3,1), 
+    gender char(1), 
+    birthday date, 
+    location varchar(50), 
+    salt varchar(50), 
+    email varchar(255), 
+    userid int, 
+    CONSTRAINT users_pk PRIMARY KEY (email)
+);
+-- foreign keys
+
+-- Reference:  users_commitments (table: commitments)
+
+ALTER TABLE mood ADD CONSTRAINT users_mood FOREIGN KEY users_mood (useremail)
+    REFERENCES users (email);
+
+ALTER TABLE commitments ADD CONSTRAINT users_commitments FOREIGN KEY users_commitments (email)
+    REFERENCES users (email);
+
+-- Reference:  users_message (table: message)
+
+ALTER TABLE message ADD CONSTRAINT users_message FOREIGN KEY users_message (user1)
+    REFERENCES users (email);
+
+ALTER TABLE message ADD CONSTRAINT users_messages FOREIGN KEY users_messages (user2)
+    REFERENCES users (email);
+
+-- End of file.
