@@ -105,6 +105,7 @@ function getActivityDuration(type, json){
 	var days = getActivityData(json);
 	var index = days.length -1;
 	var value = 0;
+	console.log("length in 1"+days.length);
 	if(type == "intense"){
 		value = days[index].intense/3600;
 	}
@@ -120,6 +121,7 @@ function getActivityDuration(type, json){
 function getAllActivityDuration(type, json){
 	var days = getActivityData(json);
 	var total = 0;
+	console.log("length in all"+days.length);
 	for(var i = 0; i < days.length;++i){
 		if(type == "intense"){
 			total += days[i].intense/3600;
@@ -144,18 +146,9 @@ function generateColors(threedays){
 	var yellow='#FF8400';
 	for(var i = 0; i < threedays.length;++i){
 		var day = getData(threedays[i]);
-		//for testing, printing out each value in the formula, all the printing is just for testing.
-		// console.log("day"+i);
-		// console.log("evening duration:"+getDuration("evening",2,day));
-		// console.log("morning duration:"+getDuration("morning",2,day));
-		// console.log("evening deep instances:"+getInstance("evening",2,day)+" morning deep instances:"+getInstance("morning",2,day));
-		// console.log("evening awake instances:"+getInstance("evening",0,day)+" morning awake instances"+getInstance("morning",0,day));
-		// console.log("evening awake avg:"+getAverageDuration("evening",0,day)+" morning awake avg"+getAverageDuration("morning",0,day));
 		var pm = getSleepScore("evening",2,day);
 		var am = getSleepScore("morning",2,day);
-		//console.log("am score, pm score: "+am+" "+pm);
 		var finalScore = getFinalSleepScore(am,pm);
-		// console.log("final score:"+finalScore);
 		if(finalScore <= 19.99){
 			sixColours.push(red);
 			sixColours.push(red);
@@ -170,7 +163,7 @@ function generateColors(threedays){
 			sixColours.push(green);
 		}
 		if(sixColours.length<arraySize){
-			sixColours.push('#d8d8d8');
+			sixColours.push('#ffffff');
 		}
 		arraySize+=2;
 	}
@@ -213,7 +206,7 @@ function generateActivityColors(json, daynum){
 			colors.push(yellow);
 		}
 		if(colors.length<arraySize){
-			colors.push('#d8d8d8');
+			colors.push('#ffffff');
 		}
 		arraySize+=2;
 	}
@@ -321,6 +314,7 @@ function getWeekReal(days){
 function covertBasedOnTen(array){
 	var converted = [];
 	var total = 0;
+	console.log("length in convert "+array.length);
 	for(var i=0;i<array.length;++i){
 		total+=array[i];
 	}
@@ -407,7 +401,6 @@ function getSleepBankMessage(sixColors, daysName){
 		}
 		i+=2;
 	}
-	console.log(red+' '+orange+' '+green);
 	if(red==3){
 		return "Over the last three days, you had very low levels of deep sleep.  Please seek medical advice as soon as possible to determine what is preventing you from getting reasonable sleep. "
 	}
@@ -442,6 +435,10 @@ function getSleepBankMessage(sixColors, daysName){
 	if(green == 2 && orange == 1){
 		return "Congratulations! You have had two sleeps in the last three days that have added to your sleep bank. You should be feeling good and have a growing sense of wellness. ";		
 	}
+	if(green == 2 && red == 1){
+		return "Let's look at the bright side! You've had two good sleeps in the last three days and one poor sleep. Every now and then, many people have a night of poor sleep. We just need to keep an eye on them,  so those poor sleeps don't start growing!";
+	}
+
 	if(green == 3){
 		return "Champion! You have achieved 3 consecutive days of quality sleep. You have added significantly to your sleep bank and achieved some high performace sleep! You're the boss! ";
 	}
@@ -584,19 +581,63 @@ function convertToDayNumber(num){
 		return num/2;
 	}
 }
-function getDrillDownAmMessage(value){
+function getDrillDownAmMessage(value, pmDuration){
 	if(value>=0 && value<=9.99){
-		return "Ouch! Your head must be really hurting. You are suffering without enough deep sleep. Perhaps you are getting all your deep sleep before 12 midnight? If not we suggest you seek medical advice as soon as possible. ";
+		if(pmDuration<1){
+			return "Ouch! Your head must be really hurting. You are suffering without enough deep sleep. You're getting hardly any deep sleep before 12 midnight. And then it's not getting much better in your morning sleep session either. If this situation continues, we suggest you seek medical advice as soon as possible.";
+		}
+		if(pmDuration<2){
+			return "You had a little bit of deep sleep before 12 midnight. And hardly any in your morning sleep session. It's worth thinking through what might be going wrong and trying some new strategies. ";
+		}
+		return "OK. You banked some good deep sleep before 12 midnight that suggests you are getting into a good before bed routine. But in the morning sleep session, you are spending a lot of time awake and sleeping lightly. Be your own detective and go through all the things that could possibly be causing your wakefulness in the mornings. "
 	}else if(value<=19.99){
-		return "You are not getting enough deep sleep. Every now and then we can deal with one night of slightly less deep sleep so long as we have built up some hours in the bank with good sleeps preceding it and a nights good sleep straight afterwards";
+		if(pmDuration<1){
+			return "You are not getting enough deep sleep. Every now and then we can deal with one night of slightly less deep sleep so long as we have built up some hours in the bank with good sleeps preceding it and a nights good sleep straight afterwards Please try to give yourself the best possible chance of getting some good sleep tonight. ";
+		}
+		if(pmDuration<2){
+			return "You are getting some deep sleep before 12 midnight and a little bit more after 12 during the morning. But overall, your sleep stats are still too low. Please consider how you might improve or visit our knowledgebase for tips ";
+		}
+		return "Alright. You are getting some good deep sleep before 12 midnight. This is taking the pressure off you a little. And then you're having a little more deep sleep in the morning, but you are also spending significant time awake and in light sleep. Try our knowledge base article - 'not thinking'";
 	}else if(value<=29.99){
-		return "You are getting some deep sleep, but we are guessing that you really want more? It's worth thinking about what's keeping you up? If you are thinking too much then try to visualise your worried thoughts as being separate from you and make a firm decision not to engage with them. ";
+		if(pmDuration<1){
+			return "You are getting virtually no deep sleep before 12 midnight. This is putting your body under more pressure to 'get the hours' during your morning sleep session. And, you are getting some but we are guessing that you're not waking up feeling energised? Because your body just didn't have time to do the 'extras'. ";
+		}
+		if(pmDuration<2){
+			return "You are getting some deep sleep before 12 midnight. And in the light of that, your morning session score isn't too bad. Try to get more sleep tonight and charge up your sleep bank. ";
+		}
+		else{
+			return "You are getting excellent deep sleep before 12 midnight. Meaning that your body doesn't have to work as hard in the morning to bank missing hours. If you want to wake up feeling more energised then try to get to bed a little earlier and just lay there. ";
+		}
 	}else if(value<=39.99){
-		return "Solid! You are banking some reasonable deep sleep. Enough for you to feel normal and function. The question is - how super would you feel if you could have even more deep sleep every night? ";
+		if(pmDuration<1){
+			return "You're doing OK in your morning sleep. The real issue is what's happening before 12 midnight. If you could give some consideration to getting more sleep before 12 then you will wake up smarter, lighter and slow the ageing process. ";
+		}
+		if(pmDuration<2){
+			return "You're getting some deep sleep before 12 midnight which is good. You're morning score is about average. You're on the right track - but we think you can do even better. ";
+		}
+		else{
+			return "Solid! You are banking good deep sleep before 12 midnight. You're body is loving this and you are using the free time you have after your deep sleep quota has been reached to do some thinking in your morning sleep session";
+		}
 	}else if(value<=70){
-		return "Good! You are having some excellent deep sleep in the morning. This is going to help your body get around to doing some of the finer repairs that it may not have time for, if you slept less. "
+		if(pmDuration<1){
+			return "OK. You are into a regular pattern of staying up late. Somehow your body has adjusted and you are getting solid deep sleep hours during your morning session. Just imagine how much better you would feel if you could increase those evening sleep stats a little further? ";
+		}
+		if(pmDuration<2){
+			return "Good, you have a solid spread of deep sleep both before and after 12. This is the sort of sleep you want to have as a minimum before a high performance day at the office. ";
+		}
+		else{
+			return "Amazing. We're all jealous. You clocked more than 2 hours deep sleep before 12 and then you had more solid deep sleep time in the morning. ";
+		}
 	}else{
-		return "Fantastic. You are a high performance sleeper. Don't forget to keep a record of your dreams and log them on our site when you have a chance. Keep up the great sleeping. ";
+		if(pmDuration<1){
+			return "By the looks of it, you've had a very big day and then slept as deep as a submarine. You've got some great sleeping done in the morning. How would you rate your feeling on waking? If a little groggy, then likely that your body wasn't able to get all the tasks completed. Try going to bed earlier and compare. ";
+		}
+		if(pmDuration<2){
+			return "Fantastic. You are a high performance sleeper. Don't forget to keep a record of your dreams and log them on our site when you have a chance. Keep up the great sleeping. ";
+		}
+		else{
+			return "Incredible! More than 2 hours deep sleep before 12 midnight and then another bag of hours in the morning. You're going to be feeling very Michael Jackson about your day. ";
+		}
 	}
 }
 function getDrillDownPmMessage(value){

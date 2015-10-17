@@ -9,6 +9,11 @@ var target;
 
 //var appearId;
 
+
+
+
+
+//
 var textCommit2;
 var commitCounter2=0;
 var realCommitCounter2=0;

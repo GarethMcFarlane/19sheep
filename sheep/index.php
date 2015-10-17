@@ -16,7 +16,6 @@
 		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<link href="css/nivo-lightbox.css" rel="stylesheet" />
 		<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
-		<link href="css/animate.css" rel="stylesheet" />
 		<!-- Squad theme CSS -->
 
 		<link href="color/default.css" rel="stylesheet">
@@ -55,30 +54,48 @@
 
 	<body data-spy="scroll">
 		<div class="container  header-main">
-			<div class="icon">
-				<img src="img/index/19sleep.png" style="width: 50px; height: 50px;" class="icon">
-			</div>
-			<div id="cssmenu">
+
+			<div id="cssmenu" style="width: 100%;">
 				<ul>
-					<li class="active">
+					<li  class="active">
 						<a href="index.php">19 Sheep</a>
 					</li>
 					<li>
-						<a href='dreamdetail.php'>Dream Analysis</a>
+						<a href='mood.php'>My Mood</a>
+					</li>
+					<li>
+						<a href='dreamdetail.php'>My Dreams</a>
+					</li>
+					<li>
+						<a href='profile.php'>My Dashboard</a>
+					</li>
+					<li>
+						<a href='commitments.php'>My Commitments</a>
+					</li>
+					<li>
+						<a href='message.php'>My Messages</a>
+					</li>
+					<li>
+						<a href='http://shop.19sheep.com'>My Shop</a>
 					</li>
 
+					<li style="float:right;">
+						<a href="signin.php">LOGIN</a>
+					</li>
+					<li style="float:right;">
+						<a href="signup.php">SIGN UP</a>
+					</li>
 				</ul>
+
 			</div>
 			<div class="login-home">
-				<a class="btn-signin" href="signin.php">Sign in</a>
 
-				<a class="btn-signin" href="signup.php">Sign up</a>
 			</div>
 		</div>
 
 		<section id="slide">
 			<div id="slider-wrapper">
-				<div id="layerslider" style="width:1280px;height:720px;max-width: 1280px;">
+				<div id="layerslider" style="width:1170px;height:720px;max-width: 1170px; padding:15px;">
 					<div class="ls-slide" data-ls="slidedelay:4000;transition3d:3,34;">
 						<img src="img/index/log your dreams.jpg" class="ls-bg" alt="Slide background"/>
 						<h1 class="ls-l" style="top:20px;left:500px;font-family: Oswald;font-weight: 600;; font-size:75px;color: #fff;white-space: nowrap;" data-ls="offsetxin:0;durationin:3000;rotateyin:60;transformoriginin:right 50% 0;offsetxout:-50;durationout:2000;showuntil:300;fadeout:0;transformoriginout:left 50% 0;">Log your dreams</h1>
@@ -132,34 +149,24 @@
 		</section>
 		<section id="store" class="text-center store">
 
-			<div class="container vedio-box">
-
-				<div>
+			<div class="container">
+				<div class="vendor vedio-box">
 					<iframe src="https://www.youtube.com/embed/zaxEqtDFym4" width="854" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
 				</div>
 
-			</div>
-
-			<div class="container store-box">
-				<div class="store-link-box">
-					<a href="http://shop.19sheep.com"><i class="fa fa-cart-arrow-down"></i> Smart Store</a>
-				</div>
-				<div id="slider">
+				<div id="slider" class="store-box">
 					<figure>
-						<a href="#"><img src="img/index/activite-1.jpg" alt=""></a>
-						<a href="#"><img src="img/index/pop_grey.jpg" alt=""></a>
-						<a href="#"><img src="img/index/pop_white.jpg" alt=""></a>
-						<a href="#"><img src="img/index/bp_monitor.jpg" alt=""></a>
-						<a href="#"><img src="img/index/security_camera.jpg" alt=""></a>
-						<a href="#"><img src="img/index/smartbaby.jpg" alt=""></a>
-						<a href="#"><img src="img/index/scales.jpg" alt=""></a>
+						<a href="http://shop.19sheep.com"><img src="img/index/activite-1.jpg" alt=""></a>
+						<a href="http://shop.19sheep.com"><img src="img/index/pop_grey.jpg" alt=""></a>
+						<a href="http://shop.19sheep.com"><img src="img/index/pop_white.jpg" alt=""></a>
+						<a href="http://shop.19sheep.com"><img src="img/index/bp_monitor.jpg" alt=""></a>
+						<a href="http://shop.19sheep.com"><img src="img/index/security_camera.jpg" alt=""></a>
+						<a href="http://shop.19sheep.com"><img src="img/index/smartbaby.jpg" alt=""></a>
+						<a href="http://shop.19sheep.com"><img src="img/index/scales.jpg" alt=""></a>
 					</figure>
 				</div>
 			</div>
 		</section>
-		
-
 		<!-- Core JavaScript Files -->
 		<script src="js/startslide.js"></script>
 		<script src="js/jquery.min.js"></script>
@@ -170,6 +177,25 @@
 		<script src="js/jquery.scrollTo.js"></script>
 		<script src="js/nivo-lightbox.min.js"></script>
 		<script src="js/stellar.js"></script>
+		<script src="js/jquery.fitvids.js"></script>
+		<script>
+			$(".container").fitVids();
+
+			function changeHeight() {
+				var width = $(window).height();
+				$(".vedio-box").css({
+					"height" : height
+				});
+				var width = $(window).width();
+				$(".store-box").css({
+					"height" : height
+				});
+			}
+
+
+			window.addEventListener('resize', changeHeight);
+			changeHeight();
+		</script>
 
 	</body>
 

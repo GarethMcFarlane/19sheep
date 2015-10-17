@@ -1,40 +1,38 @@
-   var act_drilldown_days;
+  var days;
 
 
-   $.ajax({
-    type: 'POST',
-    url: 'activitymeasures.php',
-    async: false,
-    data: {test: '1'},
-    dataType: 'text',
-    success: function(response){
-      act_drilldown_days = JSON.parse(response);
-    }
-  });  
+    $.ajax({
+      type: 'POST',
+      url: 'activitymeasures.php',
+      async: false,
+      data: {test: '1'},
+      dataType: 'text',
+      success: function(response){
+        days = JSON.parse(response);
+      }
+    });  
 
 
-   google.load('visualization', '1', {packages: ['corechart', 'bar']});
-   google.setOnLoadCallback(drawAxisTickColors);
 
+  	google.load('visualization', '1', {packages: ['corechart', 'bar']});
+  	google.setOnLoadCallback(drawAxisTickColors);
+    var todayRealData = getTodayReal(days);
+    var weekRealData = getWeekReal(days);
+    var temp1 =  covertBasedOnTen(todayRealData);
+    var temp2 =  covertBasedOnTen(weekRealData);
+    function drawAxisTickColors() {
+        var data = google.visualization.arrayToDataTable([
+          ['bars','intense',{role:'tooltip'},'moderate',{role:'tooltip'},'soft',{role:'tooltip'}],
+          ['Today',temp1[0],todayRealData[0].toFixed(2)+'hrs',temp1[1],todayRealData[1].toFixed(2)+'hrs',temp1[2],todayRealData[2].toFixed(2)+'hrs'],
+          ['Weekly',temp2[0],weekRealData[0].toFixed(2)+'hrs',temp2[1],weekRealData[1].toFixed(2)+'hrs',temp2[2],weekRealData[2].toFixed(2)+'hrs'],
+          ]);
 
-   var todayRealData = getTodayReal(act_drilldown_days);
-   var weekRealData = getWeekReal(act_drilldown_days);
-   var temp1 =  covertBasedOnTen(todayRealData);
-   var temp2 =  covertBasedOnTen(weekRealData);
-   function drawAxisTickColors() {
-    var act_drilldown_data = google.visualization.arrayToDataTable([
-      ['bars','intense',{role:'tooltip'},'moderate',{role:'tooltip'},'soft',{role:'tooltip'}],
-      ['Today',temp1[0],todayRealData[0].toFixed(2)+'hrs',temp1[1],todayRealData[1].toFixed(2)+'hrs',temp1[2],todayRealData[2].toFixed(2)+'hrs'],
-      ['Weekly',temp2[0],weekRealData[0].toFixed(2)+'hrs',temp2[1],weekRealData[1].toFixed(2)+'hrs',temp2[2],weekRealData[2].toFixed(2)+'hrs'],
-      ]);
-
-    var act_drilldown_options = {
-     isStacked: true, 
+        var options = {
+        	isStacked: true, 
           colors: ['#E00000','#FF8400','#82CA9D'], //change the color of legend
           legend:{
             textStyle:{
-              fontName: 'summary',
-              fontSize: '16'
+            fontSize: '14'
             },
             position: 'top'
           },
@@ -53,15 +51,14 @@
           hAxis: {
             textPosition: 'none', //disable the value at the horizontal axis.
             maxValue: 10 //6*4 = 24 i.e. google chart sperate the graph in 4 parts, in order to fill up the graph, the maximum have to be set to 24
-          },
+           },
           vAxis: {
             textStyle:{
-              fontName: 'summary',
-              fontSize: '16'
+            fontSize: '14'
             },
             title: ' ', //disable the y axis title.
           }
         };
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div_2'));
-        chart.draw(act_drilldown_data, act_drilldown_options);
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div_9'));
+        chart.draw(data, options);
       }

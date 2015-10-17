@@ -2,7 +2,7 @@
 session_start();
 require_once("functions.php");
 
-$query = ("SELECT * FROM commitments WHERE (email = :email)");
+$query = ("SELECT * FROM commitments WHERE (email = :email) AND (isachieved = 0)");
 $query_params = array(':email' => $_SESSION['email']);
 
 	try {

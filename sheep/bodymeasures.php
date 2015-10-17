@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 
 
@@ -7,14 +7,17 @@ function generateRandomString($length = 32) {
     		return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
 		}
 
-function getSleepData($startdate, $enddate) {
+
+function getBodyMeasures($start,$end) {
+
+		$startdate = strtotime($start);
+		$enddate = strtotime($end);
 
 
 		//Get these from the database after logging in the user
-		$oauth_token = $_SESSION["OAuthToken"];
-		$oauth_token_secret = $_SESSION["OAuthTokenSecret"];
-		$userid = $_SESSION["userid"];
-
+		$oauth_token = '6055e2e44e974ed68c3b4634f6eb31d9b11f297bc979f4f6d99cb1b1';
+		$oauth_token_secret = '2161d8debb9b09544823634c353149c3ff123024e39cd269f6287b713e';
+		$userid = '8065394';
 
 
 		$consumer_key = '4d3135853f4c5e07630fc130c34bd7440f1861844e00d96cd726d4f7513';
@@ -42,9 +45,9 @@ function getSleepData($startdate, $enddate) {
 		ksort($userTokenParameters);	
 
 		$hashSecret = $secret . '&' . $oauth_token_secret;
-		$base_string = oauth_get_sbs('GET','https://wbsapi.withings.net/v2/sleep?action=get',$userTokenParameters);
+		$base_string = oauth_get_sbs('GET','https://wbsapi.withings.net/measure?action=getmeas',$userTokenParameters);
 		$signature = urlencode(base64_encode(hash_hmac('sha1',$base_string,$hashSecret,true)));
-		$url = "https://wbsapi.withings.net/v2/sleep?action=get&userid=$userid&startdate=$startdate&enddate=$enddate&oauth_consumer_key=$consumer_key&oauth_nonce=$nonce&oauth_signature=$signature&oauth_signature_method=$signature_method&oauth_timestamp=$timestamp&oauth_token=$oauth_token&oauth_version=$oauth_version";
+		$url = "https://wbsapi.withings.net/measure?action=getmeas&userid=$userid&startdate=$startdate&enddate=$enddate&oauth_consumer_key=$consumer_key&oauth_nonce=$nonce&oauth_signature=$signature&oauth_signature_method=$signature_method&oauth_timestamp=$timestamp&oauth_token=$oauth_token&oauth_version=$oauth_version";
 
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $url);
@@ -53,23 +56,11 @@ function getSleepData($startdate, $enddate) {
 		curl_close($curl);
 
 
-		return($resp);
-}
-
-//Get today.
-$enddate = strtotime("today 09:00:00") - 39600; //Get GMT time at 9am - 10 hours for timezone.
-$startdate = $enddate - 43200;
-$day1 = getSleepData($startdate,$enddate);
-
-$enddate = strtotime("yesterday 09:00:00") - 39600; //Get GMT time at 9am - 10 hours for timezone.
-$startdate = $enddate - 43200;
-$day2 = getSleepData($startdate,$enddate);
-
-$enddate = strtotime("-2 days 09:00:00") - 39600; //Get GMT time at 9am - 10 hours for timezone.
-$startdate = $enddate - 43200;
-$day3 = getSleepData($startdate,$enddate);
+		print_r($resp);
 
 
-echo("[$day1,$day2,$day3]");
+	}
 
+	
+	getBodyMeasures('2015-08-02','2015-08-03');
 ?>

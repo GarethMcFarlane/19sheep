@@ -14,7 +14,18 @@ $.ajax({
   }
 });  
 
+var firstname;
 
+$.ajax({
+  type: 'POST',
+  url: 'getfirstname.php',
+  async: false,
+  data: {test: '1'},
+  dataType: 'text',
+  success: function(response){
+    firstname = response;
+  }
+});  
 
 
 google.load('visualization', '1', {packages: ['corechart', 'bar']});
@@ -29,13 +40,15 @@ google.load('visualization', '1', {packages: ['corechart', 'bar']});
         [daysName[0],2,colors[0],2,colors[1]],
         ]);
       var act_options_bank = {
+        enableInteractivity: false,
       	isStacked: true, 
       	legend: 'none', //disable the "color hint" at the top right corner.
       	bar:{
       	  groupWidth: '95%' //disable the gap from the top and the bottom.
       	},
         tooltip:{
-          trigger: 'none'  //disable the pop up when hover over.
+          trigger: 'none',  //disable the pop up when hover over.
+          ignoreBounds: 'true'
         },
         // chartArea: {
         // 	width: '30%',
@@ -48,8 +61,7 @@ google.load('visualization', '1', {packages: ['corechart', 'bar']});
         vAxis: {
           title: ' ', //disable the y axis title.
           textStyle:{
-            fontName: 'summary',
-            fontSize: '16'
+            fontSize: '14'
           },
         }
       };

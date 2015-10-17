@@ -11,6 +11,10 @@
             die("Invalid E-Mail Address");
 			exit();
         }
+        if ($_POST['password'] != $_POST['passwordconfirm']) {
+        	die("Passwords don\'t match");
+        	exit();
+        }
         $query = "
             SELECT
                 1
@@ -76,6 +80,14 @@
 <html lang="en">
 
 	<head>
+		<?php
+	session_start();
+	if (isset($_SESSION['email'])) {
+	//User isn't logged in, return to login page.
+		header("Location: profile.php");
+	}
+
+	?>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
@@ -90,7 +102,6 @@
 		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<link href="css/nivo-lightbox.css" rel="stylesheet" />
 		<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
-		<link href="css/animate.css" rel="stylesheet" />
 		<!-- Squad theme CSS -->
 
 		<link href="color/default.css" rel="stylesheet">
@@ -103,25 +114,40 @@
 
 	<body data-spy="scroll">
 		<div class="container  header-main">
-			<div class="icon">
-				<img src="img/index/19sleep.png" style="width: 50px; height: 50px;" class="icon">
-			</div>
-			<div id='cssmenu'>
+			
+		<div id="cssmenu" style="width: 100%;">
 				<ul>
-					<li>
-						<a href="index.php">19 Sheep</a>
+				<li  class="active">
+					<a href="index.php">19 Sheep</a>
+				</li>
+				<li>
+					<a href='mood.php'>My Mood</a>
+				</li>
+				<li>
+					<a href='dreamdetail.php'>My Dreams</a>
+				</li>
+				<li>
+					<a href='profile.php'>My Dashboard</a>
+				</li>
+				<li>
+					<a href='commitments.php'>My Commitments</a>
+				</li>
+				<li>
+					<a href='message.php'>My Messages</a>
+				</li>
+				<li>
+					<a href='http://shop.19sheep.com'>My Shop</a>
+				</li>
+					<li style="float:right;">
+						<a href="signin.php">LOGIN</a>
 					</li>
-					<li>
-						<a href='dreamdetail.php'>Dream Analysis</a>
+					<li style="float:right;">
+						<a href="signup.php">SIGN UP</a>
 					</li>
-
 				</ul>
-			</div>
-			<div class="login-home">
-				<a class="btn-signin" href="signin.php">Sign in</a>
 
-				<a class="btn-signin" href="signup.php">Sign up</a>
 			</div>
+			
 		</div>
 		<section id="signin">
 			<div class="container">
@@ -129,17 +155,12 @@
 					<div class="col-md-4 col-md-offset-4 signin-box">
 						<form method="POST" action="signup.php" accept-charset="UTF-8" role="form" id="signupform" class="form-signin text-center">
 							<fieldset>
-								<h3 class="sign-up-title" style="color: #000000; text-align: center">Hello! Provide your E-mail</h3>
-								<label>Email:</label>
 								<input class="form-control" placeholder="E-mail" name="email" type="text" required="required">
-								<label>Password:</label>
 								<input class="form-control" placeholder="Password" name="password" value="" type="password" required="required">
-								<label>Confirm Password:</label>
-								<input class="form-control" placeholder="Password" name="password" value="" type="password" required="required">
+								<input class="form-control" placeholder="Confirm Password" name="passwordconfirm" value="" type="password" required="required">
 								
-								<br>
-								<input class="submit btn btn-warning" value="Reset" type="reset">
-								<input class="submit btn btn-success" value="Submit" type="submit">
+								<input class="submit action-button" value="Reset" type="reset">
+								<input class="submit action-button" value="Submit" type="submit">
 							</fieldset>
 						</form>
 					</div>
