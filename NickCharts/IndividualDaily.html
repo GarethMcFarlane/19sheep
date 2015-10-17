@@ -1,0 +1,97 @@
+<html>
+  <head>
+  
+  <style>
+    .chartWithOverlay {
+           position: relative;
+           width: 700px;
+    }
+    .inside {
+           position: absolute;
+           top: 10px;
+           left: 280px;
+		   background-color: blue;
+    }
+	
+	.outside {
+           position: absolute;
+           top: 10px;
+           left: 280px;
+		   background-color: yellow:
+    }
+	
+	.good {
+           position: absolute;
+           top: 10px;
+           left: 295px;
+		   background-color: green;
+    }
+	
+	.bad {
+           position: absolute;
+           top: 10px;
+           left: 295px;
+		   background-color: red;
+    }
+   </style>
+  
+    <script type="text/javascript"
+          src="https://www.google.com/jsapi?autoload={
+            'modules':[{
+              'name':'visualization',
+              'version':'1',
+              'packages':['corechart']
+            }]
+          }">
+	</script>
+	
+	
+
+    <script type="text/javascript">
+      google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+		var data = google.visualization.arrayToDataTable([
+			['Time', 'Sleep Level'],
+			['10PM',  0],
+			['11PM',  3],
+			['Midnight',  2.7],
+			['1AM',  3],
+			['2AM',  3.4],
+			['3AM',  3.2],
+			['4AM',  2.1],
+			['5AM',  3],
+			['6AM',  3.8],
+			['7AM',  2],
+			['8AM',  0]
+		]);
+
+        var options = {
+			title: 'Sleep Data for 31/08',
+			curveType: 'function',
+			//z-index: 1000;
+			//legend: { position: 'bottom' },
+			//chartArea: {backgroundColor: 'light grey'},
+			animation: { duration: 500, startup: true, easing: 'out' },
+			//backgroundColor: { stroke: '#666' },
+			colors:[ 'green' ]
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+	
+	
+	
+  </head>
+  <body>
+	<div class="chartWithOverlay">
+		<div id="curve_chart" style="width: 1000px; height: 300px"></div>
+	
+		<div class="inside" style="height: 35px; width: 15px;"></div>
+		<div class="good" style="height: 35px; width: 15px;"></div>
+	</div>	
+  </body>
+</html>
