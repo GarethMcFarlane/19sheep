@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      
+    google.load("visualization", '1.1', {packages:['corechart']});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Sleep Variations', 'Deep Sleep', 'Light Sleep', 'Dreaming', 'Restless', { role: 'annotation' } ],
+        ['Sales & Marketing', 86, 60, 20, 30, ''],
+        ['Human Resources', 67, 73, 28, 47, ''],
+        ['Management', 105, 19, 34, 18, '']
+      ]);
+
+      var options = {
+		title: "Departmental Sleep Overview for August 2015",
+        width: 600,
+        height: 400,
+        legend: { position: 'right', maxLines: 3 },
+        bar: {groupWidth: '75%'},
+        isStacked: true,
+		bars: 'vertical',
+		colors: [ 'blue', 'lightBlue', 'darkBlue', 'red' ],
+		orientation: 'horizontal'
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('barchart_stacked'));
+      chart.draw(data, options);
+  }
+  
+    </script>
+  </head>
+  <body>
+    <div id="barchart_stacked" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

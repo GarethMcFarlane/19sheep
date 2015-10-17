@@ -1,0 +1,158 @@
+#wholeThing
+{
+	position: absolute;
+	top: 100px;
+	left: 200px;
+	height: 500px;
+	width: 800px;
+	border-color: blue;
+	border-style: solid;
+	
+}
+
+#noCommitments
+{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#comType
+{
+	display: true;
+}
+
+#duration
+{	
+	position: relative;
+	display: none;
+	top: -270px;
+	left: 5px;
+}
+
+#newCommit
+{
+	position: relative;
+	display: true;
+}
+
+#tableAll
+{
+	display: none;
+	width: 795px;
+	border-color: green;
+	border-style: solid;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#mainTable
+{
+	text-align: center;
+}
+
+#details
+{
+	display: none;
+	position: fixed;
+	height: 300px;
+	width: 300px;
+	top: 150px;
+	left: 450px;
+	background-color: grey;
+	border-color: green;
+	border-style: solid;
+}
+
+#closeDetails
+{
+	display: true;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+#weight
+{
+	display: none;
+	height: 300px;
+	width: 700px;
+	border-color: green;
+	border-style: solid;
+}
+
+#heartRate
+{
+	display: none;
+	height: 300px;
+	width: 700px;
+	border-color: red;
+	border-style: solid;
+}
+
+#dream
+{
+	display: none;
+	height: 300px;
+	width: 700px;
+	border-color: orange;
+	border-style: solid;
+}
+
+#form
+{
+	display: none;
+	height: 473px;
+	width: 795px;
+	border-color: black;
+	border-style: solid;
+}
+
+#textCommit
+{
+	display: none;
+	height: 20px;
+	width: 300px;
+	position: relative;
+	top: 115px;
+	left: 7px;
+	
+}
+
+#realTextCommit
+{
+	display: true;
+	position: absolute;
+	height: 20px;
+	width: 200px;
+	bottom: -2px;
+	left: 90px;
+	border-color: grey;
+	border-style: solid;
+}
+
+#buttons
+{
+	display: true;
+	position: relative;
+	height: 50px;
+	width: 200px;
+	right: 430px;
+	bottom: 20px;
+}
+
+#cancel
+{
+	display: true;
+	position: absolute;
+	bottom: 0px;
+	left: 516px;
+}
+
+#submit
+{
+	display: true;
+	position: absolute;
+	bottom: 0px;
+	left: 444px;
+	
+}

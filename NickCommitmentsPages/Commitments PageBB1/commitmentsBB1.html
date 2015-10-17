@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Commitments Page</title>
+  <link href="styles.css" type="text/css" rel="stylesheet">
+
+</head>
+
+<script>
+
+	//variable to record the type of commitment e.g. weight
+	var commitType;
+		function showFormType()
+		{
+			//Type of commitment saved to variable in string form
+			var list=document.getElementById("commitType");
+			commitType=list.options[list.selectedIndex].text
+			
+			//For whichever commitment type the user has selected, the appropriate
+			//form is displayed and the others are hidden
+			if(commitType.localeCompare("Dream")==0) {
+				$('#dream').show();
+				$('#heartRate').hide();
+				$('#weight').hide();
+				$('#duration').show();
+			} else if(commitType.localeCompare("Heart Rate")==0) {
+				$('#heartRate').show();
+				$('#dream').hide();
+				$('#weight').hide();
+				$('#duration').show();
+			} else {
+				$('#weight').show();
+				$('#dream').hide();
+				$('#heartRate').hide();
+				$('#duration').show();
+			}
+	
+		}
+
+
+</script>
+
+<script>
+	//Target weight for a weight type selection
+	var targetWeight;
+	
+	function weightSelected()
+	{
+		//Target weight recorded
+		var list=document.getElementById("weightSelect");
+		targetWeight=list.options[list.selectedIndex].text;
+		
+		//The next field appears i.e. the duration/goaldate
+		$('#duration').show();
+		
+		//A start and end integer variable are created to ascertain where to
+		//slice the total weight string
+		var start = 0;
+		var end;		
+		
+		//The options of the target weight selection are strings of
+		//numbers followed by " kg"
+		for(var i = 0; i<targetWeight.length; i++) {
+			//Goes through each character to find the end of the numeric string
+			if(targetWeight.charAt(i).localeCompare(" ") == 0) {
+				end = i;
+			}
+		}
+		
+		//Total string is sliced to attain only the number
+		targetWeight = parseFloat(targetWeight.slice(start, end));
+	}
+	
+	var duration;
+	function durationSelected()
+	{
+		//Duration saved. All options are strings of numbers followed by " days"
+		var list=document.getElementById("durationSelect");
+		duration=list.options[list.selectedIndex].text;
+		
+		//Variables for slicing
+		var start = 0;
+		var end;		
+		
+		for(var i = 0; i<duration.length; i++) {
+			if(duration.charAt(i).localeCompare(" ") == 0) {
+				end = i;
+			}
+		}
+		
+		duration = duration.slice(start, end);
+	}
+</script>
+
+<script>
+			
+			function clearAll()
+			{
+				//Function to return all fields to initial values upon submission of a new commitment
+				document.getElementById("realTextCommit").value = "Optional description...";
+				document.getElementById("commitType").selectedIndex = 0;
+				document.getElementById("weightSelect").selectedIndex = 0;
+				document.getElementById("heartRateSelect").selectedIndex = 0;
+				document.getElementById("durationSelect").selectedIndex = 0;
+				
+			}
+			
+			//Counts the number of commitments
+			var commitCounter = 0;
+			var totalComits = 0;
+			//The text variable commitment
+			var textCommit;
+			
+			var rows;
+			var cells;
+			
+		
+			function submitButton()
+			{
+				textCommit = document.getElementById("realTextCommit").value.toString();
+				//One column has been removed
+				
+				commitCounter++;
+				var index = document.getElementById("mainTable").rows.length;
+				var rows = document.getElementById("mainTable").rows.length;
+				
+				clearAll();
+				
+				//The current date is saved as a string
+				var currentDate = Date.now();
+				var currentDateString = Date(currentDate).toString();
+				
+				//The goal sated is calculated based on the number of days duration given
+				//There are 86,400,000 milliseconds per day (currentDate is in milliseconds)
+				//Saved to string
+				var goalDateString = Date(currentDate + duration*86400000).toString()
+				
+				var day = ""
+				var	month = ""
+				var year = ""
+				var dateFormatted = "";
+				var goalDateFormatted = "";
+				
+				//Date string is sliced into appropriate sub-strings to
+				//attain the day, month and year
+				day = currentDateString.slice(8, 10);
+				month = currentDateString.slice(4, 7);
+				year = currentDateString.slice(11, 15);
+				
+				//Day, month and year concatenated with forward slash partitions to get current date
+				dateFormatted = dateFormatted.concat(day, "/", month, "/", year);
+				
+				//Same variables reused for goal date
+				day = goalDateString.slice(8, 10);
+				month = goalDateString.slice(4, 7);
+				year = goalDateString.slice(11, 15);
+				
+				goalDateFormatted = goalDateFormatted.concat(day, "/", month, "/", year);
+				
+				//No commitments message is removed
+				$('#noCommitments').hide()
+				
+				//If the commitment counter is greater than or equal to 1, the
+				//table (containing the commitments) will appear
+				if(commitCounter>=1) {
+					$('#tableAll').show();
+					//Height set to 2 lines
+					$('#tableAll').height(44);
+				} 
+				
+				//Height of table div set to initial headings height plus how ever
+				//many commitments there are
+				$('#tableAll').height(commitCounter*22 + 22);
+			
+				var table = document.getElementById("mainTable");
+				//Row inserted into tab;e
+				table.insertRow();
+				
+				//7 cells are added to the row for various values
+				rows = table.rows[commitCounter];
+				rows.insertCell();//Date the commitment was made
+				rows.insertCell();//Type of commitment
+				rows.insertCell();//Goal date
+				rows.insertCell();//Commitment text
+				rows.insertCell();//Details button - possible idea
+				rows.insertCell();//Delete button
+				rows.insertCell();//Testing index to delete appropriate commitment
+	
+				cells = rows.cells;
+				
+				cells[0].innerHTML = dateFormatted.toString();
+				cells[1].innerHTML = commitType;
+				cells[2].innerHTML = goalDateFormatted.toString();
+				
+				if(textCommit.localeCompare("Optional description...") == 0) {
+					cells[3].innerHTML = "none given";
+				} else {
+					cells[3].innerHTML = "I commit to " + textCommit;
+				}
+				
+				cells[4].innerHTML = '<input type="button" id="viewMore" value="Details" onclick="showDetails()"/>';
+				
+				cells[5].innerHTML = '<input type="button" id="delButton" value="Delete" onclick="deleteComit()"/>';
+				
+				cells[6].innerHTML = index;
+
+			}
+			
+			function showDetails() {
+				$('#details').show();
+				
+				//Details would have further information about the commitment such as
+				//input from inception strategies
+			}
+			
+			function hideDetails() {
+				//Hides details
+				$('#details').hide();
+			}
+			
+			function deleteComit() {
+				
+				//counter decremented
+				commitCounter--;
+				
+				var myTable = document.getElementById('mainTable');
+				
+				//if the counter reaches zero the table is hidden and the
+				//no commmitments message is shown
+				if(commitCounter==0){
+					$('#tableAll').hide();
+					$('#noCommitments').show();
+				}
+				
+				//Height recalculated
+				$('#tableAll').height(commitCounter*22 + 22);
+				
+				//Row 1 deleted; could not work out correct row number
+				document.getElementById("mainTable").deleteRow(1);
+				
+				//----------NEED TO SORT OUT ROW DELETION--------------------------------------
+				//Trying to reset indices after a deletion:
+				for(var i = 0; i<commitCounter; i++) {
+					myTable.rows[i].cells[5].innerHTML = i;
+					alert(myTable.rows[i].cells[5].innerHTML);
+				}
+				
+				
+			}
+			
+			function removeWriting() {
+				document.getElementById("realTextCommit").value = "";
+			}
+			
+			function replaceWriting() {
+				document.getElementById("realTextCommit").value = "Optional description...";
+			}
+			
+			
+			
+</script>
+
+<body>
+	<script type="text/javascript" src="jquery.js"></script>
+	
+	<div id="wholeThing">
+		<div>Current Commitments</div>
+	
+		<div id="noCommitments">You currently have no commitments</div>
+		
+		<div id = "tableAll">
+			<table id="mainTable" style="width: 100%">
+				<tr>
+					<th>Date Made</th>
+					<th>Commitment Type</th>
+					<th>Date to be Completed</th>
+					<th>Commitment</th>
+				</tr>
+			</table>
+		</div>
+	
+		
+		
+	<input type="button" id="newCommit" value="New Commitment">
+	
+	<div id="textCommit">
+			I commit to...
+			<form>
+			<input type="text" name="realTextCommit" id="realTextCommit" value="Optional description..." onclick="removeWriting()">
+			</form>
+				<div id="buttons">
+					<input type="button" id="submit" name="commit" value="Commit!" onclick="submitButton(); clearAll();">
+					<input type="button" id="cancel" name="Cancel" value="Cancel" onclick="clearAll();">
+				</div>
+		</div>
+	
+	<div id="form">
+		
+		<div id="comType">
+			<form>
+				Commitment type:
+				<select id="commitType" onchange="showFormType()">
+					<option>Make a Selection...</option>
+					<option>Dream</option>
+					<option>Heart Rate</option>
+					<option>Weight</option>
+				</select>
+			</form>
+		</div>
+	
+		<div id="weight">
+			What is your target weight?
+			<select id="weightSelect" onchange="weightSelected()">
+				<option>Make a Selection...</option>
+			</select>
+			<br></br>
+		
+			<script type="text/javascript" language="javascript">
+				
+				//Current weight will be obtained from Gareth's withings data
+				var currentWeight = 70;
+				
+				//+- 20 kilogram weights added for selection at 2.5kg intervals
+				for (var i = currentWeight-20; i <= currentWeight+20; i+=2.5) {
+					if(i == currentWeight) {
+						continue;
+					}
+					var drop = document.getElementById("weightSelect");
+					//Option created
+					var option = document.createElement("option");
+					//" kg" string added to the end of 'i', the weight
+					option.text = i.toString() + " kg";
+					//Option added to drop-down menu
+					drop.add(option);
+					
+				}
+			</script>
+			
+		</div>
+	
+		<div id="heartRate">
+			What is your target resting Heart Rate?
+			<select id="heartRateSelect"> <!-- onchange="showWeightOptions()">-->
+					<option>Make a Selection...</option>
+			</select>
+			<br></br>
+			<script type="text/javascript" language="javascript">
+				//Exactly the same as weight but "bpm" is added to the string
+				var currentHR = 90;
+				
+				for (var i = currentHR-20; i <= currentHR+20; i+=5) {
+					if(i == currentHR) {
+						continue;
+					}
+					var drop = document.getElementById("heartRateSelect");
+				
+					var option = document.createElement("option");
+					
+					option.text = i.toString() + " bpm";
+					
+					drop.add(option);
+				}
+			</script>
+		</div>
+	
+		<div id="dream">
+			Dream chosen
+		</div>
+		
+		<div id="duration">
+			In how many days would you like to achieve this target?
+			<select id="durationSelect" onchange="durationSelected()">
+					<option>Make a Selection...</option>
+			</select>
+			
+			<script type="text/javascript" language="javascript">
+				//Duration options created, 1 - 30 days
+				for (var i = 1; i <= 30; i++) {
+			
+					var drop = document.getElementById("durationSelect");
+				
+					var option = document.createElement("option");
+					
+					//If the goal is to be completed in 1 day, 's' char is removed
+					if(i == 1) {
+						option.text = i.toString() + " day";
+					} else {
+						option.text = i.toString() + " days";
+					}
+					//Option added to drop-down menu
+					drop.add(option);
+					
+				}
+			</script>
+		</div>
+		
+		<script type="text/javascript" src="showForm.js"></script>
+	</div><!--form-->
+	
+	
+	
+	</div><!--whole thing-->
+	
+	<div id="details">
+		<div id="StringCommitment"></div>
+		<input type="button" id="closeDetails" name="closeDetails" value="Close" onclick="hideDetails();">
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,116 @@
+header
+{
+	text-align: center;
+	font-size: 30pt;
+	margin-bottom: 30px;
+}
+
+h1
+{
+	text-align: center;
+	font-size: 18pt;	
+}
+
+b
+{
+	margin-right: 10px;
+}
+
+.completedCommitmentsStyle
+{
+	
+}
+
+.noneCompleteStyle
+{
+	text-align: center;
+	font-size: 14pt;
+	margin-bottom: 30px;
+}
+
+.noneSubmitStyle
+{	
+	text-align: center;
+	font-size: 12pt;
+}
+
+
+.comHeadingsStyle
+{
+	display: none;
+}
+
+.sections
+{
+	border: 0px;
+	float: left;
+	width: 50%;
+}
+
+.textCommit
+{
+	/* border-style: solid; */
+	float: center;
+}
+
+.formStyle
+{
+    text-align: center;
+}
+
+.commitment
+{
+	/* border-style: solid; */
+	height: 31px;
+	margin-bottom: 20px;
+}
+
+.delete
+{
+	position: relative;
+	left: 517px;
+	top: -31px;
+}
+
+.finish
+{
+	position: relative;
+	top: -31px;
+	left: 510px;
+}
+
+.date
+{
+	position: relative;
+	left: 405px;
+	top: -18px;
+	width: 80px;
+}
+
+.commitDivsStyle
+{	
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.tabTitleCommit
+{
+	margin-right: 320px;
+}
+
+.headingsStyle
+{
+	display: none;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.comTabTitleCommit
+{
+	margin-right: 320px;
+}
+
+.comTabTitleDate
+{
+	margin-right: 20px;
+}
