@@ -1,0 +1,263 @@
+header
+{
+	text-align: center;
+	font-size: 30pt;
+	margin-bottom: 30px;
+}
+
+h1
+{
+	text-align: center;
+	font-size: 18pt;	
+}
+
+b
+{
+	margin-right: 10px;
+}
+
+p{
+	display: inline;
+}
+
+.dateMessage
+{
+	display: none;
+	position: fixed;
+	height: 500px;
+	width: 600px;
+	border-style: solid;
+}
+
+#achieved
+{
+	position: absolute;
+	right: 100px;
+	bottom: 100px;
+}
+
+#oneWeek
+{
+	display:none;
+}
+
+#halfway
+{
+	display: none;
+}
+
+.dropDownStyle
+{
+	left: 365px;
+	position: relative;
+}
+
+.completedCommitmentsStyle
+{
+	
+}
+
+.noneCompleteStyle
+{
+	text-align: center;
+	font-size: 14pt;
+	margin-bottom: 30px;
+}
+
+.noneSubmitStyle
+{	
+	text-align: center;
+	font-size: 12pt;
+}
+
+
+.comHeadingsStyle
+{
+	display: none;
+}
+
+.textCommit
+{
+	padding: 30px;
+	width:  50%;
+	min-width: 50%;
+	margin: auto;
+}
+
+.formStyle
+{	
+	width: 600px;
+	height: 200px;
+	display: true;
+	position: relative;
+	left: 365px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.textField
+{
+	width: 200px;
+}
+
+.gDate
+{
+	width: 85px;
+}
+
+.commitmentLeft
+{
+	display: none;
+	position: relative;
+	left: 391px;
+	height: 120px;
+	width: 200px;
+	margin-top: 20px;
+}
+
+.commitmentRight
+{
+	display: none;
+	position: relative;
+	left: 588px;
+	height: 120px;
+	width: 200px;
+s	margin-top: 20px;
+}
+
+.commitText
+{
+	position: absolute;
+	font-style: italic;
+	top: 20px;
+	width: 200px;
+	word-wrap: break-word;
+}
+
+.share
+{
+	position: absolute;
+	bottom: 10px;
+	right: 90px;
+}
+
+.fbButton
+{
+	position: absolute;
+	bottom: 8px;
+	right: 45px;
+}
+
+.linkedInButton
+{
+	position: absolute;
+	bottom: 8px;
+	right: 10px;
+}
+
+.delete
+{
+	position: absolute;
+	left: 635px;
+	top: 10px;
+}
+
+.finish
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.typeVar
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 150px;
+	font-size: 12pt;
+}
+
+.date
+{
+	position: absolute;
+	left: 437px;
+	top: 10px;
+	width: 85px;
+}
+
+.goalDate
+{
+	position: absolute;
+	left: 530px;
+	top: 10px;
+	width: 85px;
+}
+
+.commitDivsStyle
+{	
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.treeLineLeft
+{
+	display: true;
+	position: absolute;
+	height: 140px;
+	right: -3px;
+	top: -23px;
+}
+
+.treeLineRight
+{
+	display: true;
+	position: absolute;
+	height: 140px;
+	left: -3px;
+	top: -23px;
+}
+
+.tabTitleCommit
+{
+	margin-right: 275px;
+}
+
+.tabTitleType
+{
+	margin-right: 40px;
+}
+
+.tabTitleDateMade
+{
+	margin-right: 20px;
+}
+
+.tabTitleGoalDate
+{
+	
+}
+
+.headingsStyle
+{
+	display: none;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.comTabTitleCommit
+{
+	margin-right: 320px;
+}
+
+.comTabTitleDate
+{
+	margin-right: 20px;
+}
+
+.row {
+	margin: 0 60px 0 0;
+	width: 100%;
+	
+}
